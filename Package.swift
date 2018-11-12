@@ -8,12 +8,12 @@ let package = Package(
     products: [
         .library(
             name: "LetsMeetModels",
-            targets: ["LetsMeetModels"]),
+            targets: ["LetsMeetModels"])
     ],
     targets: [
         .target(
             name: "LetsMeetModels",
             dependencies: [],
-            path: "Sources"),
+            path: "Sources")
     ]
 )
