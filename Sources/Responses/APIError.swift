@@ -10,8 +10,9 @@ public struct APIError: Error, Equatable {
         case invalidValue
         case internalServerError
         case invalidVerificationCode
+        case notFound
     }
-    
+
     public init(type: ErrorType, description: String = "") {
         self.type = type
         self.description = description
