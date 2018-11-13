@@ -6,9 +6,9 @@ Pod::Spec.new do |s|
 
   s.homepage     = "http://letsmeet.anbion.de"
 
-  s.author             = { "Anbion" => "letsmeet@anbion.de" }
-  s.source       = { :git => "https://gitlab.chaosspace.de/anbion/letsmeetmodels.git"}
+  s.author       = { "Anbion" => "letsmeet@anbion.de" }
+  s.source       = { :git => "https://gitlab.chaosspace.de/anbion/letsmeet-models.git"}
 
-  s.source_files  = "Sources/*"
+  s.source_files  = "Sources/**/*"
 
 end
