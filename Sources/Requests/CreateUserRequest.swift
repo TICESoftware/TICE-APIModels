@@ -1,11 +1,11 @@
 public struct CreateUserRequest: Codable {
-    public let phoneNumber: String
+    public let phoneNumber: PhoneNumber
     public let publicKeys: UserPublicKeys
-    public let platform: String
+    public let platform: Platform
     public let deviceId: String
     public let verificationCode: String
 
-    public init(phoneNumber: String, publicKeys: UserPublicKeys, platform: String, deviceId: String, verificationCode: String) {
+    public init(phoneNumber: PhoneNumber, publicKeys: UserPublicKeys, platform: Platform, deviceId: String, verificationCode: String) {
         self.phoneNumber = phoneNumber
         self.publicKeys = publicKeys
         self.platform = platform
