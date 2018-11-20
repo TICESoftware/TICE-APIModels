@@ -32,3 +32,7 @@ identifier_name:
   min_length:
     warning: 1
     error: 1
+
+trailing_whitespace:
+  ignores_empty_lines: true
+  ignores_comments: true
