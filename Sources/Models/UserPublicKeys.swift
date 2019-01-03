@@ -1,4 +1,4 @@
-public struct UserPublicKeys: Codable {
+public struct UserPublicKeys: Codable, Hashable {
     public let identityKey: String
     public let ephemeralKey: String
     public let signedPreKey: String
