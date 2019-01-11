@@ -1,9 +1,11 @@
 public struct UpdateUserRequest: Codable {
-    public let verificationCode: String
-    public let publicKeys: UserPublicKeys
+    public let publicKeys: UserPublicKeys?
+    public let deviceId: String?
+    public let verificationCode: String?
 
-    public init(verificationCode: String, publicKeys: UserPublicKeys) {
-        self.verificationCode = verificationCode
+    public init(publicKeys: UserPublicKeys? = nil, deviceId: String? = nil, verificationCode: String? = nil) {
         self.publicKeys = publicKeys
+        self.deviceId = deviceId
+        self.verificationCode = verificationCode
     }
 }
