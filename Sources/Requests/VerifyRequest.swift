@@ -1,9 +1,9 @@
 public typealias DeviceId = String
 
 public struct VerifyRequest: Codable {
-    public let phoneNumber: DeviceId
+    public let deviceId: DeviceId
     
-    public init(phoneNumber: DeviceId) {
-        self.phoneNumber = phoneNumber
+    public init(deviceId: DeviceId) {
+        self.deviceId = deviceId
     }
 }
