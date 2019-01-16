@@ -10,6 +10,14 @@ public struct EnvelopeBundle: Payload {
     public let envelopes: [Envelope]
 }
 
+public struct VerificationMessage: Payload {
+    public let verificationCode: String
+    
+    public init(verificationCode: String) {
+        self.verificationCode = verificationCode
+    }
+}
+
 public struct EncryptedMessage: Payload {
     public let encryptedMessage: String
     public let encryptedMessageKey: String

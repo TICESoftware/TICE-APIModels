@@ -22,6 +22,7 @@ public struct Envelope: Codable {
     }
     
     public enum PayloadType: String, Codable {
+        case verificationMessageV1 = "verificationMessage/v1"
         case encryptedMessageV1 = "encryptedMessage/v1"
         case groupInvitationV1 = "groupInvitation/v1"
         case envelopeBundleV1 = "envelopeBundle/v1"
@@ -42,6 +43,8 @@ public struct Envelope: Codable {
         payloadType = try container.decode(PayloadType.self, forKey: .payloadType)
         
         switch payloadType {
+        case .verificationMessageV1:
+            payload = try container.decode(VerificationMessage.self, forKey: .payload)
         case .encryptedMessageV1:
             payload = try container.decode(EncryptedMessage.self, forKey: .payload)
         case .groupInvitationV1:
@@ -58,6 +61,8 @@ public struct Envelope: Codable {
         try container.encode(payloadType, forKey: .payloadType)
         
         switch payloadType {
+        case .verificationMessageV1:
+            try container.encode(payload as! VerificationMessage, forKey: .payload)
         case .encryptedMessageV1:
             try container.encode(payload as! EncryptedMessage, forKey: .payload)
         case .groupInvitationV1:
