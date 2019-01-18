@@ -7,7 +7,6 @@ import Foundation
 public typealias Sender = String
 
 public struct Envelope: Codable {
-    
     public typealias Identifier = UUID
     public typealias CollapseIdentifier = String
     
@@ -15,49 +14,35 @@ public struct Envelope: Codable {
     public var senderId: Sender
     public var timestamp: Date
     public var collapseId: CollapseIdentifier?
+    public var payloadContainer: PayloadContainer
+}
+
+public struct PayloadContainer: Codable {
+    
+    public enum PayloadType: String, Codable {
+        case verificationMessageV1 = "verificationMessage/v1"
+        case encryptedPayloadContainerV1 = "encryptedPayloadContainer/v1"
+        case groupInvitationV1 = "groupInvitation/v1"
+        case envelopeBundleV1 = "envelopeBundle/v1"
+    }
     
     public var payloadType: PayloadType
     public var payload: Payload
     
     private enum CodingKeys: String, CodingKey {
-        case id
-        case senderId
-        case timestamp
-        case collapseId
         case payloadType
         case payload
     }
     
-    public enum PayloadType: String, Codable {
-        case verificationMessageV1 = "verificationMessage/v1"
-        case encryptedMessageV1 = "encryptedMessage/v1"
-        case groupInvitationV1 = "groupInvitation/v1"
-        case envelopeBundleV1 = "envelopeBundle/v1"
-    }
-    
-    public init(id: Identifier, sender: Sender, timestamp: Date, collapseId: CollapseIdentifier?, payloadType: PayloadType, payload: Payload) {
-        self.id = id
-        self.senderId = sender
-        self.timestamp = timestamp
-        self.collapseId = collapseId
-        self.payloadType = payloadType
-        self.payload = payload
-    }
-    
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        id = try container.decode(Identifier.self, forKey: .id)
-        senderId = try container.decode(Sender.self, forKey: .senderId)
-        timestamp = try container.decode(Date.self, forKey: .timestamp)
-        collapseId = try container.decodeIfPresent(CollapseIdentifier.self, forKey: .collapseId)
         payloadType = try container.decode(PayloadType.self, forKey: .payloadType)
         
         switch payloadType {
         case .verificationMessageV1:
             payload = try container.decode(VerificationMessage.self, forKey: .payload)
-        case .encryptedMessageV1:
-            payload = try container.decode(EncryptedMessage.self, forKey: .payload)
+        case .encryptedPayloadContainerV1:
+            payload = try container.decode(EncryptedPayloadContainer.self, forKey: .payload)
         case .groupInvitationV1:
             payload = try container.decode(GroupInvitation.self, forKey: .payload)
         case .envelopeBundleV1:
@@ -67,17 +52,13 @@ public struct Envelope: Codable {
     
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(id, forKey: .id)
-        try container.encode(senderId, forKey: .senderId)
-        try container.encode(timestamp, forKey: .timestamp)
-        try container.encodeIfPresent(collapseId, forKey: .collapseId)
         try container.encode(payloadType, forKey: .payloadType)
         
         switch payloadType {
         case .verificationMessageV1:
             try container.encode(payload as! VerificationMessage, forKey: .payload)
-        case .encryptedMessageV1:
-            try container.encode(payload as! EncryptedMessage, forKey: .payload)
+        case .encryptedPayloadContainerV1:
+            try container.encode(payload as! EncryptedPayloadContainer, forKey: .payload)
         case .groupInvitationV1:
             try container.encode(payload as! GroupInvitation, forKey: .payload)
         case .envelopeBundleV1:

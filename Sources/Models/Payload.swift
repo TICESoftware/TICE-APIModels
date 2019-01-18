@@ -18,13 +18,13 @@ public struct VerificationMessage: Payload {
     }
 }
 
-public struct EncryptedMessage: Payload {
-    public let encryptedMessage: String
-    public let encryptedMessageKey: String
+public struct EncryptedPayloadContainer: Payload {
+    public let ciphertext: String
+    public let encryptedKey: String
     
-    public init(encryptedMessage: String, encryptedMessageKey: String) {
-        self.encryptedMessage = encryptedMessage
-        self.encryptedMessageKey = encryptedMessageKey
+    public init(ciphertext: String, encryptedKey: String) {
+        self.ciphertext = ciphertext
+        self.encryptedKey = encryptedKey
     }
 }
 
