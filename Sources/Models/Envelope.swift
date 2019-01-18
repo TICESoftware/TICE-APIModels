@@ -23,7 +23,6 @@ public struct PayloadContainer: Codable {
         case verificationMessageV1 = "verificationMessage/v1"
         case encryptedPayloadContainerV1 = "encryptedPayloadContainer/v1"
         case groupInvitationV1 = "groupInvitation/v1"
-        case envelopeBundleV1 = "envelopeBundle/v1"
     }
     
     public var payloadType: PayloadType
@@ -45,8 +44,6 @@ public struct PayloadContainer: Codable {
             payload = try container.decode(EncryptedPayloadContainer.self, forKey: .payload)
         case .groupInvitationV1:
             payload = try container.decode(GroupInvitation.self, forKey: .payload)
-        case .envelopeBundleV1:
-            payload = try container.decode(EnvelopeBundle.self, forKey: .payload)
         }
     }
     
@@ -61,8 +58,6 @@ public struct PayloadContainer: Codable {
             try container.encode(payload as! EncryptedPayloadContainer, forKey: .payload)
         case .groupInvitationV1:
             try container.encode(payload as! GroupInvitation, forKey: .payload)
-        case .envelopeBundleV1:
-            try container.encode(payload as! EnvelopeBundle, forKey: .payload)
         }
     }
 }

@@ -6,10 +6,6 @@ import Foundation
 
 public protocol Payload: Codable {}
 
-public struct EnvelopeBundle: Payload {
-    public let envelopes: [Envelope]
-}
-
 public struct VerificationMessage: Payload {
     public let verificationCode: String
     
