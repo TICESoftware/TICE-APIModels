@@ -6,17 +6,23 @@ import Foundation
 
 public struct Envelope: Codable {
     
-    public typealias Identifier = String
+    public typealias Identifier = UUID
+    public typealias CollapseIdentifier = String
     public typealias Sender = String
     
     public var id: Identifier
     public var sender: Sender
+    public var timestamp: Date
+    public var collapseId: CollapseIdentifier?
+    
     public var payloadType: PayloadType
     public var payload: Payload
     
     private enum CodingKeys: String, CodingKey {
         case id
         case sender
+        case timestamp
+        case collapseId
         case payloadType
         case payload
     }
@@ -28,9 +34,11 @@ public struct Envelope: Codable {
         case envelopeBundleV1 = "envelopeBundle/v1"
     }
     
-    public init(id: Identifier, sender: Sender, payloadType: PayloadType, payload: Payload) {
+    public init(id: Identifier, sender: Sender, timestamp: Date, collapseId: CollapseIdentifier?, payloadType: PayloadType, payload: Payload) {
         self.id = id
         self.sender = sender
+        self.timestamp = timestamp
+        self.collapseId = collapseId
         self.payloadType = payloadType
         self.payload = payload
     }
@@ -40,6 +48,8 @@ public struct Envelope: Codable {
         
         id = try container.decode(Identifier.self, forKey: .id)
         sender = try container.decode(Sender.self, forKey: .sender)
+        timestamp = try container.decode(Date.self, forKey: .timestamp)
+        collapseId = try container.decodeIfPresent(CollapseIdentifier.self, forKey: .collapseId)
         payloadType = try container.decode(PayloadType.self, forKey: .payloadType)
         
         switch payloadType {
@@ -58,6 +68,8 @@ public struct Envelope: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
         try container.encode(sender, forKey: .sender)
+        try container.encode(timestamp, forKey: .timestamp)
+        try container.encodeIfPresent(collapseId, forKey: .collapseId)
         try container.encode(payloadType, forKey: .payloadType)
         
         switch payloadType {
