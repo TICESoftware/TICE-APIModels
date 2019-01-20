@@ -2,7 +2,7 @@ import Foundation
 
 public struct SendMessageRequest: Codable {
     public let id: UUID
-    public let senderId: String
+    public let senderId: Sender
     public let timestamp: Date
     public let encryptedMessage: String
     public let encryptedMessageSignature: String

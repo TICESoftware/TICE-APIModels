@@ -4,14 +4,15 @@
 
 import Foundation
 
+public typealias Sender = String
+
 public struct Envelope: Codable {
     
     public typealias Identifier = UUID
     public typealias CollapseIdentifier = String
-    public typealias Sender = String
     
     public var id: Identifier
-    public var sender: Sender
+    public var senderId: Sender
     public var timestamp: Date
     public var collapseId: CollapseIdentifier?
     
@@ -36,7 +37,7 @@ public struct Envelope: Codable {
     
     public init(id: Identifier, sender: Sender, timestamp: Date, collapseId: CollapseIdentifier?, payloadType: PayloadType, payload: Payload) {
         self.id = id
-        self.sender = sender
+        self.senderId = sender
         self.timestamp = timestamp
         self.collapseId = collapseId
         self.payloadType = payloadType
@@ -47,7 +48,7 @@ public struct Envelope: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         id = try container.decode(Identifier.self, forKey: .id)
-        sender = try container.decode(Sender.self, forKey: .sender)
+        senderId = try container.decode(Sender.self, forKey: .sender)
         timestamp = try container.decode(Date.self, forKey: .timestamp)
         collapseId = try container.decodeIfPresent(CollapseIdentifier.self, forKey: .collapseId)
         payloadType = try container.decode(PayloadType.self, forKey: .payloadType)
@@ -67,7 +68,7 @@ public struct Envelope: Codable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
-        try container.encode(sender, forKey: .sender)
+        try container.encode(senderId, forKey: .sender)
         try container.encode(timestamp, forKey: .timestamp)
         try container.encodeIfPresent(collapseId, forKey: .collapseId)
         try container.encode(payloadType, forKey: .payloadType)
