@@ -21,7 +21,7 @@ public struct Envelope: Codable {
     
     private enum CodingKeys: String, CodingKey {
         case id
-        case sender
+        case senderId
         case timestamp
         case collapseId
         case payloadType
@@ -48,7 +48,7 @@ public struct Envelope: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         
         id = try container.decode(Identifier.self, forKey: .id)
-        senderId = try container.decode(Sender.self, forKey: .sender)
+        senderId = try container.decode(Sender.self, forKey: .senderId)
         timestamp = try container.decode(Date.self, forKey: .timestamp)
         collapseId = try container.decodeIfPresent(CollapseIdentifier.self, forKey: .collapseId)
         payloadType = try container.decode(PayloadType.self, forKey: .payloadType)
@@ -68,7 +68,7 @@ public struct Envelope: Codable {
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
-        try container.encode(senderId, forKey: .sender)
+        try container.encode(senderId, forKey: .senderId)
         try container.encode(timestamp, forKey: .timestamp)
         try container.encodeIfPresent(collapseId, forKey: .collapseId)
         try container.encode(payloadType, forKey: .payloadType)
