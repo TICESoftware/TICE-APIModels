@@ -40,6 +40,11 @@ public struct PayloadContainer: Codable {
         case payloadType
         case payload
     }
+
+    public init(payloadType: PayloadType, payload: Payload) {
+        self.payloadType = payloadType
+        self.payload = payload
+    }
     
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
