@@ -9,9 +9,9 @@ public struct SendMessageRequest: Codable {
     public let serverSignedMembershipCertificate: String
     public let recipients: [Recipient]
     public let collapseId: String?
-    public let messageTimeToLive: Int
+    public let messageTimeToLive: TimeInterval
 
-    public init(id: UUID, senderId: String, timestamp: Date, encryptedMessage: String, encryptedMessageSignature: String, serverSignedMembershipCertificate: String, recipients: [Recipient], collapseId: String?, messageTimeToLive: Int) {
+    public init(id: UUID, senderId: String, timestamp: Date, encryptedMessage: String, encryptedMessageSignature: String, serverSignedMembershipCertificate: String, recipients: [Recipient], collapseId: String?, messageTimeToLive: TimeInterval) {
         self.id = id
         self.senderId = senderId
         self.timestamp = timestamp
