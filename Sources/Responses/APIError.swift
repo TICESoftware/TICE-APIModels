@@ -11,6 +11,8 @@ public struct APIError: Error, Equatable {
         case internalServerError
         case invalidVerificationCode
         case notFound
+        case duplicateGroupId
+        case authenticationFailed
     }
 
     public init(type: ErrorType, description: String = "") {
