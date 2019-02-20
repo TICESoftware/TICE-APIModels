@@ -1,8 +1,8 @@
 public struct DeleteGroupRequest: Codable {
-    public let serverSignedOwnershipCertificate: String
+    public let serverSignedOwnershipCertificate: Membership
     public let notificationRecipients: [NotificationRecipient]
 
-    public init(serverSignedOwnershipCertificate: String, notificationRecipients: [NotificationRecipient]) {
+    public init(serverSignedOwnershipCertificate: Membership, notificationRecipients: [NotificationRecipient]) {
         self.serverSignedOwnershipCertificate = serverSignedOwnershipCertificate
         self.notificationRecipients = notificationRecipients
     }
