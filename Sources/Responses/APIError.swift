@@ -13,6 +13,7 @@ public struct APIError: Error, Equatable {
         case notFound
         case duplicateGroupId
         case authenticationFailed
+        case pushFailed
     }
 
     public init(type: ErrorType, description: String = "") {
