@@ -1,3 +1,9 @@
+//
+//  Copyright © 2019 Anbion. All rights reserved.
+//
+
+import Foundation
+
 public struct Membership: Codable {
     public let userId: String
     public let groupId: String

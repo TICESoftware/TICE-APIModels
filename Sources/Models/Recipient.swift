@@ -1,3 +1,9 @@
+//
+//  Copyright © 2019 Anbion. All rights reserved.
+//
+
+import Foundation
+
 public struct Recipient: Codable {
     public let userId: String
     public let identityKey: String
@@ -11,4 +17,3 @@ public struct Recipient: Codable {
         self.encryptedMessageKey = encryptedMessageKey
     }
 }
-
