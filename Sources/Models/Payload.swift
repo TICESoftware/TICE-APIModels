@@ -50,3 +50,17 @@ public struct GroupUpdate: Payload {
         case settingsUpdated
     }
 }
+
+public struct MeetUpInvitation: Payload {
+    public let groupId: String
+    public let ownerId: String
+    public let name: String?
+    public let location: String?
+
+    public init(groupId: String, ownerId: String, name: String? = nil, location: String? = nil) {
+        self.groupId = groupId
+        self.ownerId = ownerId
+        self.name = name
+        self.location = location
+    }
+}
