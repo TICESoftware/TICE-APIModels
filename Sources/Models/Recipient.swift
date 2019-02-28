@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct Recipient: Codable {
+public struct Recipient: Codable, Hashable {
     public let userId: String
     public let identityKey: String
     public let serverSignedMembershipCertificate: Membership

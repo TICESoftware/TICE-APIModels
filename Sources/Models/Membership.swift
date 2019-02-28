@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct Membership: Codable {
+public struct Membership: Codable, Hashable {
     public let userId: String
     public let groupId: String
     public let owner: Bool
