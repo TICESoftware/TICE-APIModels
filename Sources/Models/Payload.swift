@@ -51,26 +51,12 @@ public struct GroupUpdate: Payload {
     }
 }
 
-public struct MeetUpInvitation: Payload {
-    public let meetUpId: UUID
-    public let groupId: String
-    public let ownerId: String
-    public let name: String?
-    public let location: String?
+public struct AuthenticatedPayload<T>: Payload where T: Codable {
+    public let payload: T
+    public let signature: String
 
-    public init(meetUpId: UUID, groupId: String, ownerId: String, name: String? = nil, location: String? = nil) {
-        self.meetUpId = meetUpId
-        self.groupId = groupId
-        self.ownerId = ownerId
-        self.name = name
-        self.location = location
-    }
-}
-
-public struct MeetUpDeletion: Payload {
-    public let meetUpId: UUID
-
-    public init(meetUpId: UUID) {
-        self.meetUpId = meetUpId
+    public init(payload: T, signature: String) {
+        self.payload = payload
+        self.signature = signature
     }
 }

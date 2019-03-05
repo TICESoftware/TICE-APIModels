@@ -13,6 +13,8 @@ public struct PayloadContainer: Codable {
         case groupUpdateV1 = "groupUpdate/v1"
         case meetUpInvitationV1 = "meetUpInvitation/v1"
         case meetUpDeletionV1 = "meetUpDeletion/v1"
+        case meetUpJoinV1 = "meetUpJoin/v1"
+        case meetUpLeaveV1 = "meetUpLeave/v1"
     }
 
     public var payloadType: PayloadType
@@ -42,9 +44,13 @@ public struct PayloadContainer: Codable {
         case .groupUpdateV1:
             payload = try container.decode(GroupUpdate.self, forKey: .payload)
         case .meetUpInvitationV1:
-            payload = try container.decode(MeetUpInvitation.self, forKey: .payload)
+            payload = try container.decode(AuthenticatedPayload<MeetUpInvitation>.self, forKey: .payload)
         case .meetUpDeletionV1:
-            payload = try container.decode(MeetUpDeletion.self, forKey: .payload)
+            payload = try container.decode(AuthenticatedPayload<MeetUpDeletion>.self, forKey: .payload)
+        case .meetUpJoinV1:
+            payload = try container.decode(AuthenticatedPayload<MeetUpJoin>.self, forKey: .payload)
+        case .meetUpLeaveV1:
+            payload = try container.decode(AuthenticatedPayload<MeetUpLeave>.self, forKey: .payload)
         }
     }
 
@@ -62,9 +68,13 @@ public struct PayloadContainer: Codable {
         case .groupUpdateV1:
             try container.encode(payload as! GroupUpdate, forKey: .payload)
         case .meetUpInvitationV1:
-            try container.encode(payload as! MeetUpInvitation, forKey: .payload)
+            try container.encode(payload as! AuthenticatedPayload<MeetUpInvitation>, forKey: .payload)
         case .meetUpDeletionV1:
-            try container.encode(payload as! MeetUpDeletion, forKey: .payload)
+            try container.encode(payload as! AuthenticatedPayload<MeetUpDeletion>, forKey: .payload)
+        case .meetUpJoinV1:
+            try container.encode(payload as! AuthenticatedPayload<MeetUpJoin>, forKey: .payload)
+        case .meetUpLeaveV1:
+            try container.encode(payload as! AuthenticatedPayload<MeetUpLeave>, forKey: .payload)
         }
     }
 }
