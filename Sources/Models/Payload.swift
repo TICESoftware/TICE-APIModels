@@ -51,12 +51,54 @@ public struct GroupUpdate: Payload {
     }
 }
 
-public struct AuthenticatedPayload<T>: Payload where T: Codable {
-    public let payload: T
-    public let signature: String
+// MARK: Messages
 
-    public init(payload: T, signature: String) {
-        self.payload = payload
-        self.signature = signature
+public struct MeetUpInvitation: Payload {
+    public let meetUpId: UUID
+    public let groupId: String
+    public let ownerId: String
+    public let name: String?
+    public let location: String?
+
+    public init(meetUpId: UUID, groupId: String, ownerId: String, name: String? = nil, location: String? = nil) {
+        self.meetUpId = meetUpId
+        self.groupId = groupId
+        self.ownerId = ownerId
+        self.name = name
+        self.location = location
+    }
+}
+
+public struct MeetUpDeletion: Payload {
+    public let meetUpId: UUID
+    public let groupId: String
+
+    public init(meetUpId: UUID, groupId: String) {
+        self.meetUpId = meetUpId
+        self.groupId = groupId
+    }
+}
+
+public struct MeetUpJoin: Payload {
+    public let meetUpId: UUID
+    public let groupId: String
+    public let userId: String
+
+    public init(meetUpId: UUID, groupId: String, userId: String) {
+        self.meetUpId = meetUpId
+        self.groupId = groupId
+        self.userId = userId
+    }
+}
+
+public struct MeetUpLeave: Payload {
+    public let meetUpId: UUID
+    public let groupId: String
+    public let userId: String
+
+    public init(meetUpId: UUID, groupId: String, userId: String) {
+        self.meetUpId = meetUpId
+        self.groupId = groupId
+        self.userId = userId
     }
 }

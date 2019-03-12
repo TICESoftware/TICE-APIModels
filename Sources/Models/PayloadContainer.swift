@@ -44,13 +44,13 @@ public struct PayloadContainer: Codable {
         case .groupUpdateV1:
             payload = try container.decode(GroupUpdate.self, forKey: .payload)
         case .meetUpInvitationV1:
-            payload = try container.decode(AuthenticatedPayload<MeetUpInvitation>.self, forKey: .payload)
+            payload = try container.decode(MeetUpInvitation.self, forKey: .payload)
         case .meetUpDeletionV1:
-            payload = try container.decode(AuthenticatedPayload<MeetUpDeletion>.self, forKey: .payload)
+            payload = try container.decode(MeetUpDeletion.self, forKey: .payload)
         case .meetUpJoinV1:
-            payload = try container.decode(AuthenticatedPayload<MeetUpJoin>.self, forKey: .payload)
+            payload = try container.decode(MeetUpJoin.self, forKey: .payload)
         case .meetUpLeaveV1:
-            payload = try container.decode(AuthenticatedPayload<MeetUpLeave>.self, forKey: .payload)
+            payload = try container.decode(MeetUpLeave.self, forKey: .payload)
         }
     }
 
@@ -68,13 +68,13 @@ public struct PayloadContainer: Codable {
         case .groupUpdateV1:
             try container.encode(payload as! GroupUpdate, forKey: .payload)
         case .meetUpInvitationV1:
-            try container.encode(payload as! AuthenticatedPayload<MeetUpInvitation>, forKey: .payload)
+            try container.encode(payload as! MeetUpInvitation, forKey: .payload)
         case .meetUpDeletionV1:
-            try container.encode(payload as! AuthenticatedPayload<MeetUpDeletion>, forKey: .payload)
+            try container.encode(payload as! MeetUpDeletion, forKey: .payload)
         case .meetUpJoinV1:
-            try container.encode(payload as! AuthenticatedPayload<MeetUpJoin>, forKey: .payload)
+            try container.encode(payload as! MeetUpJoin, forKey: .payload)
         case .meetUpLeaveV1:
-            try container.encode(payload as! AuthenticatedPayload<MeetUpLeave>, forKey: .payload)
+            try container.encode(payload as! MeetUpLeave, forKey: .payload)
         }
     }
 }
