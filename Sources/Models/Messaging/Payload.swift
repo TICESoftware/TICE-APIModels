@@ -102,3 +102,15 @@ public struct MeetUpLeave: Payload {
         self.userId = userId
     }
 }
+
+// MARK: Syncing
+
+public struct GroupSync: Payload {
+    public let groupId: String
+    public let meetUps: [CompactMeetUp]
+
+    public init(groupId: String, meetUps: [CompactMeetUp]) {
+        self.groupId = groupId
+        self.meetUps = meetUps
+    }
+}

@@ -15,6 +15,8 @@ public struct PayloadContainer: Codable {
         case meetUpDeletionV1 = "meetUpDeletion/v1"
         case meetUpJoinV1 = "meetUpJoin/v1"
         case meetUpLeaveV1 = "meetUpLeave/v1"
+        case syncV1 = "sync/v1"
+
     }
 
     public var payloadType: PayloadType
@@ -51,6 +53,8 @@ public struct PayloadContainer: Codable {
             payload = try container.decode(MeetUpJoin.self, forKey: .payload)
         case .meetUpLeaveV1:
             payload = try container.decode(MeetUpLeave.self, forKey: .payload)
+        case .syncV1:
+            payload = try container.decode(GroupSync.self, forKey: .payload)
         }
     }
 
@@ -75,6 +79,8 @@ public struct PayloadContainer: Codable {
             try container.encode(payload as! MeetUpJoin, forKey: .payload)
         case .meetUpLeaveV1:
             try container.encode(payload as! MeetUpLeave, forKey: .payload)
+        case .syncV1:
+            try container.encode(payload as! GroupSync, forKey: .payload)
         }
     }
 }
