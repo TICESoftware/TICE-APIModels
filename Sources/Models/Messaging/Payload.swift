@@ -108,9 +108,11 @@ public struct MeetUpLeave: Payload {
 public struct GroupSync: Payload {
     public let groupId: String
     public let meetUps: [CompactMeetUp]
+    public let groupHash: String
 
-    public init(groupId: String, meetUps: [CompactMeetUp]) {
+    public init(groupId: String, meetUps: [CompactMeetUp], groupHash: String) {
         self.groupId = groupId
         self.meetUps = meetUps
+        self.groupHash = groupHash
     }
 }
