@@ -4,7 +4,7 @@
 
 import Foundation
 
-public enum GroupMode: String, Codable {
-    case open
-    case `private`
+public enum PermissionMode: String, Codable {
+    case everyone
+    case admin
 }

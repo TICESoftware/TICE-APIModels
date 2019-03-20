@@ -56,14 +56,14 @@ public struct GroupUpdate: Payload {
 public struct MeetUpInvitation: Payload {
     public let meetUpId: UUID
     public let groupId: String
-    public let ownerId: String
+    public let adminId: String
     public let name: String?
     public let location: String?
 
-    public init(meetUpId: UUID, groupId: String, ownerId: String, name: String? = nil, location: String? = nil) {
+    public init(meetUpId: UUID, groupId: String, adminId: String, name: String? = nil, location: String? = nil) {
         self.meetUpId = meetUpId
         self.groupId = groupId
-        self.ownerId = ownerId
+        self.adminId = adminId
         self.name = name
         self.location = location
     }
