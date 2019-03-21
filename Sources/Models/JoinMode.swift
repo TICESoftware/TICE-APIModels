@@ -6,5 +6,5 @@ import Foundation
 
 public enum JoinMode: String, Codable {
     case open
-    case `private`
+    case closed
 }
