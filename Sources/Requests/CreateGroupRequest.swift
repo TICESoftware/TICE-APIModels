@@ -1,8 +1,8 @@
 public struct CreateGroupRequest: Codable {
+    public let groupId: String
     public let type: GroupType
     public let joinMode: JoinMode
     public let permissionMode: PermissionMode
-    public let groupId: String
     public let selfSignedAdminCertificate: Membership
     public let encryptedSettings: String
     public let encryptedInternalSettings: String

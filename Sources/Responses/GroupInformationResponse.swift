@@ -8,20 +8,20 @@ public struct GroupInformationResponse: Codable {
 
     // MARK: Information only for members of this or parent groups
 
-    public let parentGroupId: String?
     public let encryptedMemberships: [Membership]?
     public let encryptedInternalSettings: String?
+    public let parentGroupId: String?
     public let children: [ChildGroup]?
 
-    public init(groupId: String, parentGroupId: String?, type: GroupType, joinMode: JoinMode, permissionMode: PermissionMode, encryptedMemberships: [Membership]?, encryptedSettings: String, encryptedInternalSettings: String?, children: [ChildGroup]?) {
+    public init(groupId: String, type: GroupType, joinMode: JoinMode, permissionMode: PermissionMode, encryptedMemberships: [Membership]?, encryptedSettings: String, encryptedInternalSettings: String?, parentGroupId: String?, children: [ChildGroup]?) {
         self.groupId = groupId
-        self.parentGroupId = parentGroupId
         self.type = type
         self.joinMode = joinMode
         self.permissionMode = permissionMode
         self.encryptedMemberships = encryptedMemberships
         self.encryptedSettings = encryptedSettings
         self.encryptedInternalSettings = encryptedInternalSettings
+        self.parentGroupId = parentGroupId
         self.children = children
     }
 }
