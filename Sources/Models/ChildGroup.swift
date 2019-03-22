@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct Parent: Codable, Hashable {
+public struct ChildGroup: Codable, Hashable {
     public let groupId: String
-    public let encryptedChildGroupKey: String?
+    public let parentEncryptedGroupKey: String?
 }

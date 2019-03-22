@@ -11,9 +11,9 @@ public struct GroupInformationResponse: Codable {
     public let parentGroupId: String?
     public let encryptedMemberships: [Membership]?
     public let encryptedInternalSettings: String?
-    public let children: [Child]?
+    public let children: [ChildGroup]?
 
-    public init(groupId: String, parentGroupId: String?, type: GroupType, joinMode: JoinMode, permissionMode: PermissionMode, encryptedMemberships: [Membership]?, encryptedSettings: String, encryptedInternalSettings: String?, children: [Child]?) {
+    public init(groupId: String, parentGroupId: String?, type: GroupType, joinMode: JoinMode, permissionMode: PermissionMode, encryptedMemberships: [Membership]?, encryptedSettings: String, encryptedInternalSettings: String?, children: [ChildGroup]?) {
         self.groupId = groupId
         self.parentGroupId = parentGroupId
         self.type = type
