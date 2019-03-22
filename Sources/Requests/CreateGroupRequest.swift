@@ -1,5 +1,5 @@
 public struct CreateGroupRequest: Codable {
-    public let groupId: String
+    public let groupId: GroupId
     public let type: GroupType
     public let joinMode: JoinMode
     public let permissionMode: PermissionMode
@@ -8,7 +8,7 @@ public struct CreateGroupRequest: Codable {
     public let encryptedInternalSettings: String
     public let parent: ParentGroup?
 
-    public init(groupId: String, type: GroupType, joinMode: JoinMode, permissionMode: PermissionMode, selfSignedAdminCertificate: Membership, encryptedSettings: String, encryptedInternalSettings: String, parent: ParentGroup?) {
+    public init(groupId: GroupId, type: GroupType, joinMode: JoinMode, permissionMode: PermissionMode, selfSignedAdminCertificate: Membership, encryptedSettings: String, encryptedInternalSettings: String, parent: ParentGroup?) {
         self.groupId = groupId
         self.type = type
         self.joinMode = joinMode

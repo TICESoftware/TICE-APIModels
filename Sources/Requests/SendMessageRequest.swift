@@ -1,7 +1,7 @@
 import Foundation
 
 public struct SendMessageRequest: Codable {
-    public let id: UUID
+    public let id: MessageId
     public let senderId: Sender
     public let timestamp: Date
     public let encryptedMessage: String
@@ -11,7 +11,7 @@ public struct SendMessageRequest: Codable {
     public let collapseId: String?
     public let messageTimeToLive: TimeInterval
 
-    public init(id: UUID, senderId: String, timestamp: Date, encryptedMessage: String, encryptedMessageSignature: String, serverSignedMembershipCertificate: Membership, recipients: [Recipient], collapseId: String?, messageTimeToLive: TimeInterval) {
+    public init(id: MessageId, senderId: String, timestamp: Date, encryptedMessage: String, encryptedMessageSignature: String, serverSignedMembershipCertificate: Membership, recipients: [Recipient], collapseId: String?, messageTimeToLive: TimeInterval) {
         self.id = id
         self.senderId = senderId
         self.timestamp = timestamp

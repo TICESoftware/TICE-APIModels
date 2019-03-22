@@ -1,8 +1,8 @@
 public struct GetUserResponse: Codable {
-    public let userId: String
+    public let userId: UserId
     public let publicKeys: UserPublicKeys
 
-    public init(userId: String, publicKeys: UserPublicKeys) {
+    public init(userId: UserId, publicKeys: UserPublicKeys) {
         self.userId = userId
         self.publicKeys = publicKeys
     }

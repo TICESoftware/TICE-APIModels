@@ -27,18 +27,18 @@ public struct EncryptedPayloadContainer: Payload {
 }
 
 public struct GroupInvitation: Payload {
-    public let groupId: String
+    public let groupId: GroupId
 
-    public init(groupId: String) {
+    public init(groupId: GroupId) {
         self.groupId = groupId
     }
 }
 
 public struct GroupUpdate: Payload {
-    public let groupId: String
+    public let groupId: GroupId
     public let action: GroupUpdate.Action
 
-    public init(groupId: String, action: Action) {
+    public init(groupId: GroupId, action: Action) {
         self.groupId = groupId
         self.action = action
     }
@@ -48,71 +48,5 @@ public struct GroupUpdate: Payload {
         case memberAdded
         case memberDeleted
         case settingsUpdated
-    }
-}
-
-// MARK: Messages
-
-public struct MeetUpInvitation: Payload {
-    public let meetUpId: UUID
-    public let groupId: String
-    public let adminId: String
-    public let name: String?
-    public let location: String?
-
-    public init(meetUpId: UUID, groupId: String, adminId: String, name: String? = nil, location: String? = nil) {
-        self.meetUpId = meetUpId
-        self.groupId = groupId
-        self.adminId = adminId
-        self.name = name
-        self.location = location
-    }
-}
-
-public struct MeetUpDeletion: Payload {
-    public let meetUpId: UUID
-    public let groupId: String
-
-    public init(meetUpId: UUID, groupId: String) {
-        self.meetUpId = meetUpId
-        self.groupId = groupId
-    }
-}
-
-public struct MeetUpJoin: Payload {
-    public let meetUpId: UUID
-    public let groupId: String
-    public let userId: String
-
-    public init(meetUpId: UUID, groupId: String, userId: String) {
-        self.meetUpId = meetUpId
-        self.groupId = groupId
-        self.userId = userId
-    }
-}
-
-public struct MeetUpLeave: Payload {
-    public let meetUpId: UUID
-    public let groupId: String
-    public let userId: String
-
-    public init(meetUpId: UUID, groupId: String, userId: String) {
-        self.meetUpId = meetUpId
-        self.groupId = groupId
-        self.userId = userId
-    }
-}
-
-// MARK: Syncing
-
-public struct GroupSync: Payload {
-    public let groupId: String
-    public let meetUps: [CompactMeetUp]
-    public let groupHash: String
-
-    public init(groupId: String, meetUps: [CompactMeetUp], groupHash: String) {
-        self.groupId = groupId
-        self.meetUps = meetUps
-        self.groupHash = groupHash
     }
 }
