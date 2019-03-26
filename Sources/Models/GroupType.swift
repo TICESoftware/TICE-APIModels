@@ -6,6 +6,6 @@ import Foundation
 
 public enum GroupType: String, Codable {
     case organization
-    case group
+    case team
     case meetup
 }
