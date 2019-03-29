@@ -2,10 +2,10 @@ import Foundation
 
 public struct CreateGroupResponse: Codable {
     public let url: URL
-    public let serverSignedOwnershipCertificate: Membership
+    public let serverSignedAdminCertificate: Membership
 
-    public init(url: URL, serverSignedOwnershipCertificate: Membership) {
+    public init(url: URL, serverSignedAdminCertificate: Membership) {
         self.url = url
-        self.serverSignedOwnershipCertificate = serverSignedOwnershipCertificate
+        self.serverSignedAdminCertificate = serverSignedAdminCertificate
     }
 }

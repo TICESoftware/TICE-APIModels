@@ -1,7 +1,7 @@
 public struct CreateUserResponse: Codable {
-    public let userId: String
+    public let userId: UserId
 
-    public init(userId: String) {
+    public init(userId: UserId) {
         self.userId = userId
     }
 }
