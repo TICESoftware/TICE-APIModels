@@ -8,10 +8,11 @@ public struct SendMessageRequest: Codable {
     public let encryptedMessageSignature: String
     public let serverSignedMembershipCertificate: Membership
     public let recipients: [Recipient]
+    public let priority: Bool
     public let collapseId: String?
     public let messageTimeToLive: TimeInterval
 
-    public init(id: MessageId, senderId: UserId, timestamp: Date, encryptedMessage: String, encryptedMessageSignature: String, serverSignedMembershipCertificate: Membership, recipients: [Recipient], collapseId: String?, messageTimeToLive: TimeInterval) {
+    public init(id: MessageId, senderId: UserId, timestamp: Date, encryptedMessage: String, encryptedMessageSignature: String, serverSignedMembershipCertificate: Membership, recipients: [Recipient], priority: Bool, collapseId: String?, messageTimeToLive: TimeInterval) {
         self.id = id
         self.senderId = senderId
         self.timestamp = timestamp
@@ -19,6 +20,7 @@ public struct SendMessageRequest: Codable {
         self.encryptedMessageSignature = encryptedMessageSignature
         self.serverSignedMembershipCertificate = serverSignedMembershipCertificate
         self.recipients = recipients
+        self.priority = priority
         self.collapseId = collapseId
         self.messageTimeToLive = messageTimeToLive
     }

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "LetsMeetModels"
-  s.version      = "0.1.0"
+  s.version      = "0.2.0"
   s.summary      = "Models to be used in Let's Meet projects."
 
   s.homepage     = "http://letsmeet.anbion.de"
