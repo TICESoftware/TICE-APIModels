@@ -5,5 +5,5 @@
 import Foundation
 
 public struct GroupInternals: Hashable, Codable {
-
+    public init() {}
 }

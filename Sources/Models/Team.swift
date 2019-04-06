@@ -26,6 +26,7 @@ public class Team: Group {
     }
 
     public struct InternalSettings: Hashable, Codable {
+        public init() {}
     }
 
     public enum MeetupState {

@@ -19,7 +19,11 @@ public class Meetup: Group {
     public var internalSettings: InternalSettings
 
     public struct InternalSettings: Hashable, Codable {
-        let location: String?
+        public let location: String?
+
+        public init(location: String?) {
+            self.location = location
+        }
     }
 
     public init(groupId: GroupId, groupKey: String, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, admins: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, url: URL) {
