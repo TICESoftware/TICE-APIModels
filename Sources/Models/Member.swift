@@ -4,13 +4,9 @@
 
 import Foundation
 
-public class Member {
+public struct Member: Hashable {
     public let user: User
     public let groupId: GroupId
-
-    public var userId: UserId {
-        return user.userId
-    }
 
     public var selfSignedMembershipCertificate: Membership?
     public var serverSignedMembershipCertificate: Membership?
@@ -23,16 +19,5 @@ public class Member {
         self.selfSignedMembershipCertificate = selfSignedMembershipCertificate
         self.serverSignedMembershipCertificate = serverSignedMembershipCertificate
         self.adminSignedMembershipCertificate = adminSignedMembershipCertificate
-    }
-}
-
-extension Member: Hashable {
-    public static func == (lhs: Member, rhs: Member) -> Bool {
-        return lhs.userId == rhs.userId && lhs.groupId == rhs.groupId
-    }
-
-    public func hash(into hasher: inout Hasher) {
-        hasher.combine(userId)
-        hasher.combine(groupId)
     }
 }
