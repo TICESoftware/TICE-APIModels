@@ -8,8 +8,6 @@ public class User: UserProtocol {
     public let userId: UserId
     public let publicKeys: UserPublicKeys
 
-    public var lastLocation: UserLocation?
-
     public init(userId: UserId, publicKeys: UserPublicKeys) {
         self.userId = userId
         self.publicKeys = publicKeys
