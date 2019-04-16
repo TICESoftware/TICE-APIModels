@@ -12,6 +12,7 @@ public struct APIError: Error, Equatable {
         case invalidVerificationCode
         case notFound
         case duplicateGroupId
+        case invalidETAG
         case authenticationFailed
         case pushFailed
     }
