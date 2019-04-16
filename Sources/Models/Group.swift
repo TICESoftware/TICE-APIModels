@@ -9,8 +9,8 @@ public typealias ETAG = String
 public protocol Group: class {
     var groupId: GroupId { get }
     var groupKey: String { get }
-    var joinMode: JoinMode { get }
-    var permissionMode: PermissionMode { get }
+    var joinMode: JoinMode { get set }
+    var permissionMode: PermissionMode { get set }
     var url: URL { get set }
     var parent: Group? { get set }
     var children: [Group] { get set }
