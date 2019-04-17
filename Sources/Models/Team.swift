@@ -15,8 +15,7 @@ public class Team: Group {
     public var members: Set<Member>
     public var admins: Set<Member>
     public var settings: GroupSettings
-    public var settingsETAG: ETAG
-    public var internalsETAG: ETAG
+    public var etag: ETAG
 
     public var internalSettings: InternalSettings
     public var meetups: Set<Meetup> {
@@ -50,7 +49,7 @@ public class Team: Group {
         }
     }
 
-    public init(groupId: GroupId, groupKey: String, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, admins: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, settingsETAG: ETAG, internalsETAG: ETAG, url: URL) {
+    public init(groupId: GroupId, groupKey: String, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, admins: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, etag: ETAG, internalsETAG: ETAG, url: URL) {
         self.groupId = groupId
         self.groupKey = groupKey
         self.joinMode = joinMode
@@ -61,8 +60,7 @@ public class Team: Group {
         self.admins = admins
         self.settings = settings
         self.internalSettings = internalSettings
-        self.settingsETAG = settingsETAG
-        self.internalsETAG = internalsETAG
+        self.etag = etag
         self.url = url
     }
 }

@@ -17,8 +17,7 @@ public protocol Group: class {
     var members: Set<Member> { get set }
     var admins: Set<Member> { get set }
     var settings: GroupSettings { get set }
-    var settingsETAG: ETAG { get set}
-    var internalsETAG: ETAG { get set}
+    var etag: ETAG { get set}
 }
 
 extension Group {
