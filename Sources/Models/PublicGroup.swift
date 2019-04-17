@@ -13,9 +13,9 @@ public struct PublicGroup {
     public let permissionMode: PermissionMode
     public let url: URL
     public let groupSettings: GroupSettings
-    public let settingsETAG: ETAG
+    public let etag: ETAG
 
-    public init(groupId: GroupId, type: GroupType, parentGroupId: GroupId?, groupKey: String, joinMode: JoinMode, permissionMode: PermissionMode, url: URL, groupSettings: GroupSettings, settingsETAG: ETAG) {
+    public init(groupId: GroupId, type: GroupType, parentGroupId: GroupId?, groupKey: String, joinMode: JoinMode, permissionMode: PermissionMode, url: URL, groupSettings: GroupSettings, etag: ETAG) {
         self.groupId = groupId
         self.type = type
         self.parentGroupId = parentGroupId
@@ -24,6 +24,6 @@ public struct PublicGroup {
         self.permissionMode = permissionMode
         self.url = url
         self.groupSettings = groupSettings
-        self.settingsETAG = settingsETAG
+        self.etag = etag
     }
 }

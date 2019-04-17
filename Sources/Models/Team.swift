@@ -49,7 +49,7 @@ public class Team: Group {
         }
     }
 
-    public init(groupId: GroupId, groupKey: String, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, admins: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, etag: ETAG, internalsETAG: ETAG, url: URL) {
+    public init(groupId: GroupId, groupKey: String, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, admins: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, etag: ETAG, url: URL) {
         self.groupId = groupId
         self.groupKey = groupKey
         self.joinMode = joinMode
