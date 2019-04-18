@@ -13,9 +13,9 @@ public struct GroupInternalsResponse: Codable {
     public let encryptedMemberships: [Membership]
     public let parentEncryptedGroupKey: String?
     public let children: [GroupId]
-    public let etag: ETAG
+    public let groupTag: GroupTag
 
-    public init(groupId: GroupId, parentGroupId: GroupId?, type: GroupType, joinMode: JoinMode, permissionMode: PermissionMode, url: URL, encryptedSettings: String, encryptedInternalSettings: String, encryptedMemberships: [Membership], parentEncryptedGroupKey: String?, children: [GroupId], etag: ETAG) {
+    public init(groupId: GroupId, parentGroupId: GroupId?, type: GroupType, joinMode: JoinMode, permissionMode: PermissionMode, url: URL, encryptedSettings: String, encryptedInternalSettings: String, encryptedMemberships: [Membership], parentEncryptedGroupKey: String?, children: [GroupId], groupTag: GroupTag) {
         self.groupId = groupId
         self.parentGroupId = parentGroupId
         self.type = type
@@ -27,6 +27,6 @@ public struct GroupInternalsResponse: Codable {
         self.encryptedMemberships = encryptedMemberships
         self.parentEncryptedGroupKey = parentEncryptedGroupKey
         self.children = children
-        self.etag = etag
+        self.groupTag = groupTag
     }
 }

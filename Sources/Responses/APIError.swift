@@ -12,9 +12,10 @@ public struct APIError: Error, Equatable {
         case invalidVerificationCode
         case notFound
         case duplicateGroupId
-        case invalidETAG
+        case invalidGroupTag
         case authenticationFailed
         case pushFailed
+        case notModified
     }
 
     public init(type: ErrorType, description: String = "") {

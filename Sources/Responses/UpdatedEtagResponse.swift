@@ -1,7 +1,7 @@
 public struct UpdatedEtagResponse: Codable {
-    public let etag: ETAG
+    public let groupTag: GroupTag
 
-    public init(etag: ETAG) {
-        self.etag = etag
+    public init(groupTag: GroupTag) {
+        self.groupTag = groupTag
     }
 }

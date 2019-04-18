@@ -15,7 +15,7 @@ public class Meetup: Group {
     public var members: Set<Member>
     public var admins: Set<Member>
     public var settings: GroupSettings
-    public var etag: ETAG
+    public var tag: GroupTag
 
     public var internalSettings: InternalSettings
 
@@ -27,7 +27,7 @@ public class Meetup: Group {
         }
     }
 
-    public init(groupId: GroupId, groupKey: String, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, admins: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, etag: ETAG, url: URL) {
+    public init(groupId: GroupId, groupKey: String, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, admins: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, tag: GroupTag, url: URL) {
         self.groupId = groupId
         self.groupKey = groupKey
         self.joinMode = joinMode
@@ -38,7 +38,7 @@ public class Meetup: Group {
         self.admins = admins
         self.settings = settings
         self.internalSettings = internalSettings
-        self.etag = etag
+        self.tag = tag
         self.url = url
     }
 }

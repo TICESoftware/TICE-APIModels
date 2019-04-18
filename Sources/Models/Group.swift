@@ -4,7 +4,7 @@
 
 import Foundation
 
-public typealias ETAG = String
+public typealias GroupTag = String
 
 public protocol Group: class {
     var groupId: GroupId { get }
@@ -17,7 +17,7 @@ public protocol Group: class {
     var members: Set<Member> { get set }
     var admins: Set<Member> { get set }
     var settings: GroupSettings { get set }
-    var etag: ETAG { get set}
+    var tag: GroupTag { get set }
 }
 
 extension Group {
