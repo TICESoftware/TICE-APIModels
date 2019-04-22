@@ -52,19 +52,9 @@ public struct GroupUpdate: Payload {
 }
 
 public struct LocationUpdate: Payload {
-    public let latitude: Double
-    public let longitude: Double
-    public let altitude: Double
-    public let horizontalAccuracy: Double
-    public let verticalAccuracy: Double
-    public let timestamp: Date
+    public let location: Location
 
-    public init(latitude: Double, longitude: Double, altitude: Double, horizontalAccuracy: Double, verticalAccuracy: Double, timestamp: Date) {
-        self.latitude = latitude
-        self.longitude = longitude
-        self.altitude = altitude
-        self.horizontalAccuracy = horizontalAccuracy
-        self.verticalAccuracy = verticalAccuracy
-        self.timestamp = timestamp
+    public init(location: Location) {
+        self.location = location
     }
 }

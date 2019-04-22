@@ -33,20 +33,7 @@ public class Team: Group {
     public enum MeetupState {
         case none
         case invited
-        case participating
-    }
-
-    public func meetupStateFor(member: Member) -> MeetupState {
-        if meetups.isEmpty {
-            return .none
-        } else {
-            for meetup in meetups {
-                if meetup.members.contains(member) {
-                    return .participating
-                }
-            }
-            return .invited
-        }
+        case participating(meetup: Meetup)
     }
 
     public init(groupId: GroupId, groupKey: String, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, admins: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, tag: GroupTag, url: URL) {

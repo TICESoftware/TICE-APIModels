@@ -3,6 +3,7 @@
 //  
 
 import Foundation
+import CoreLocation
 
 public class Meetup: Group {
     public let groupId: GroupId
@@ -19,11 +20,22 @@ public class Meetup: Group {
 
     public var internalSettings: InternalSettings
 
-    public struct InternalSettings: Hashable, Codable {
-        public let location: String?
+    public struct InternalSettings: Codable {
+        private var location: Location?
 
-        public init(location: String?) {
-            self.location = location
+        public var meetingPoint: CLLocation? {
+            get {
+                guard let location = location else { return nil }
+                return CLLocation(location)
+            }
+
+            set {
+                location = newValue?.location
+            }
+        }
+
+        public init(location: CLLocation?) {
+            self.location = location?.location
         }
     }
 
