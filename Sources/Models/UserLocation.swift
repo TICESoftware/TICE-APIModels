@@ -7,12 +7,13 @@ import CoreLocation
 
 public class UserLocation: LocationAnnotation {
 
-    public weak var user: User?
+    public var user: User
 
     public init(location: CLLocation, user: User) {
-        super.init(location: location)
         self.user = user
 
-       self.title = user.userId.uuidString
+        super.init(location: location)
+
+        self.title = user.userId.uuidString
     }
 }
