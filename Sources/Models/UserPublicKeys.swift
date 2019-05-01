@@ -5,9 +5,9 @@
 import Foundation
 
 public struct UserPublicKeys: Codable, Hashable {
-    public let certificateKey: String
+    public let signingKey: String
 
-    public init(certificateKey: String) {
-        self.certificateKey = certificateKey
+    public init(signingKey: String) {
+        self.signingKey = signingKey
     }
 }
