@@ -7,17 +7,11 @@ import Foundation
 public struct Member: Hashable {
     public let user: User
     public let groupId: GroupId
+    public let membership: Membership
 
-    public var selfSignedMembershipCertificate: Membership?
-    public var serverSignedMembershipCertificate: Membership?
-    public var adminSignedMembershipCertificate: Membership?
-
-    public init(user: User, groupId: GroupId, selfSignedMembershipCertificate: Membership? = nil, serverSignedMembershipCertificate: Membership? = nil, adminSignedMembershipCertificate: Membership? = nil) {
+    public init(user: User, groupId: GroupId, membership: Membership) {
         self.user = user
         self.groupId = groupId
-
-        self.selfSignedMembershipCertificate = selfSignedMembershipCertificate
-        self.serverSignedMembershipCertificate = serverSignedMembershipCertificate
-        self.adminSignedMembershipCertificate = adminSignedMembershipCertificate
+        self.membership = membership
     }
 }
