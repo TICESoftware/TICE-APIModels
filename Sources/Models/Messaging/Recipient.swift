@@ -6,10 +6,10 @@ import Foundation
 
 public struct Recipient: Codable, Hashable {
     public let userId: UserId
-    public let serverSignedMembershipCertificate: Membership
+    public let serverSignedMembershipCertificate: Certificate
     public let encryptedMessageKey: String
 
-    public init(userId: UserId, serverSignedMembershipCertificate: Membership, encryptedMessageKey: String) {
+    public init(userId: UserId, serverSignedMembershipCertificate: Certificate, encryptedMessageKey: String) {
         self.userId = userId
         self.serverSignedMembershipCertificate = serverSignedMembershipCertificate
         self.encryptedMessageKey = encryptedMessageKey
