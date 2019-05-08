@@ -22,10 +22,6 @@ public class Team: Group {
         return Set(children.compactMap { $0 as? Meetup })
     }
 
-    public var sortedMembers: [Member] {
-        return Array(members)
-    }
-
     public struct InternalSettings: Hashable, Codable {
         public init() {}
     }

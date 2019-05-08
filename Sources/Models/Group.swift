@@ -21,7 +21,7 @@ public protocol Group: class {
 }
 
 extension Group {
-    public var orderedMembers: [Member] {
+    public var sortedMembers: [Member] {
         return Array(members)
     }
 
