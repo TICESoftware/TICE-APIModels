@@ -13,3 +13,10 @@ LetsMeetModels.xcodeproj: Package.resolved
 	swift package generate-xcodeproj
 
 dev: update xcode
+
+lint: Sources Package.swift LetsMeetModels.podspec
+	./lint.sh $(version)
+
+version: lint
+	git push --tags
+	pod repo push --allow-warnings AnbionPods
