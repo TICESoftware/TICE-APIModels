@@ -6,5 +6,5 @@ public struct CertificateRequest: Codable {
     }
 }
 
-typealias RevokeCertificateRequest = CertificateRequest
-typealias CertificateBlacklistedRequest = CertificateRequest
+public typealias RevokeCertificateRequest = CertificateRequest
+public typealias CertificateBlacklistedRequest = CertificateRequest
