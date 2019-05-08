@@ -12,19 +12,20 @@ fi
 STATUS=0
 
 if [[ -n $(git status --porcelain) ]]; then
-  echo "${RED}Git directory not clean"
+  echo "${RED}Git directory not clean${RESET}"
   STATUS=1
 fi
 
 if [ $(git describe --tags) != ${1} ]; then
-  echo "${RED}HEAD is not correctly tagged"
+  echo "${RED}HEAD is not correctly tagged${RESET}"
   STATUS=1
 fi
 
-LINT=$(pod spec lint --quick --allow-warnings)
+echo "Linting…"
+LINT=$(pod lib lint --allow-warnings)
 if [ $? -ne 0 ]; then
-  echo "${RED}Linting failed:"
-  echo "${RESET}${LINT}"
+  echo "${RED}Linting failed:${RESET}"
+  echo "${LINT}"
 fi
 
 if ! $(echo ${LINT} | grep -qF "(${1})")
@@ -34,11 +35,9 @@ fi
 
 echo ""
 if [ $STATUS == 0 ]; then
-  echo "${GREEN}All good!"
+  echo "${GREEN}All good!${RESET}"
 else
-  echo "${RED}There were errors"
+  echo "${RED}There were errors${RESET}"
 fi
-
-tput sgr0
 
 exit $STATUS

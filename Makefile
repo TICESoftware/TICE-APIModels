@@ -18,5 +18,6 @@ lint: Sources Package.swift LetsMeetModels.podspec
 	./lint.sh $(version)
 
 version: lint
+	git push
 	git push --tags
 	pod repo push --allow-warnings AnbionPods
