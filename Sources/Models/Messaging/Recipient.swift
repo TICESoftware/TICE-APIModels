@@ -7,9 +7,9 @@ import Foundation
 public struct Recipient: Codable, Hashable {
     public let userId: UserId
     public let serverSignedMembershipCertificate: Certificate
-    public let encryptedMessageKey: String
+    public let encryptedMessageKey: Data
 
-    public init(userId: UserId, serverSignedMembershipCertificate: Certificate, encryptedMessageKey: String) {
+    public init(userId: UserId, serverSignedMembershipCertificate: Certificate, encryptedMessageKey: Data) {
         self.userId = userId
         self.serverSignedMembershipCertificate = serverSignedMembershipCertificate
         self.encryptedMessageKey = encryptedMessageKey
