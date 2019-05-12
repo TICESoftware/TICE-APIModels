@@ -15,13 +15,11 @@ public struct VerificationMessage: Payload {
 }
 
 public struct EncryptedPayloadContainer: Payload {
-    public let ciphertext: String
-    public let signature: String
-    public let encryptedKey: String
+    public let ciphertext: Data
+    public let encryptedKey: Data
 
-    public init(ciphertext: String, signature: String, encryptedKey: String) {
+    public init(ciphertext: Data, encryptedKey: Data) {
         self.ciphertext = ciphertext
-        self.signature = signature
         self.encryptedKey = encryptedKey
     }
 }
