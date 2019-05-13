@@ -8,14 +8,14 @@ public struct GroupInternalsResponse: Codable {
     public let joinMode: JoinMode
     public let permissionMode: PermissionMode
     public let url: URL
-    public let encryptedSettings: String
-    public let encryptedInternalSettings: String
-    public let encryptedMemberships: [Membership]
-    public let parentEncryptedGroupKey: String?
+    public let encryptedSettings: Data
+    public let encryptedInternalSettings: Data
+    public let encryptedMemberships: [Data]
+    public let parentEncryptedGroupKey: Data?
     public let children: [GroupId]
     public let groupTag: GroupTag
 
-    public init(groupId: GroupId, parentGroupId: GroupId?, type: GroupType, joinMode: JoinMode, permissionMode: PermissionMode, url: URL, encryptedSettings: String, encryptedInternalSettings: String, encryptedMemberships: [Membership], parentEncryptedGroupKey: String?, children: [GroupId], groupTag: GroupTag) {
+    public init(groupId: GroupId, parentGroupId: GroupId?, type: GroupType, joinMode: JoinMode, permissionMode: PermissionMode, url: URL, encryptedSettings: Data, encryptedInternalSettings: Data, encryptedMemberships: [Data], parentEncryptedGroupKey: Data?, children: [GroupId], groupTag: GroupTag) {
         self.groupId = groupId
         self.parentGroupId = parentGroupId
         self.type = type

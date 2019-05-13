@@ -6,5 +6,5 @@ import Foundation
 
 public protocol UserProtocol {
     var userId: UserId { get }
-    var publicKeys: UserPublicKeys { get }
+    var publicSigningKey: PublicKey { get }
 }

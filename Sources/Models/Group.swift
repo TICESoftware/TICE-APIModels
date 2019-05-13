@@ -8,7 +8,7 @@ public typealias GroupTag = String
 
 public protocol Group: class {
     var groupId: GroupId { get }
-    var groupKey: String { get }
+    var groupKey: SecretKey { get }
     var joinMode: JoinMode { get set }
     var permissionMode: PermissionMode { get set }
     var url: URL { get set }
@@ -30,7 +30,7 @@ extension Group {
         components.scheme = url.scheme
         components.host = url.host
         components.path = url.relativePath
-        components.fragment = groupKey
+        components.fragment = groupKey.description
 
         return components.url!
     }

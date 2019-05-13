@@ -1,7 +1,7 @@
 public struct CertificateRequest: Codable {
-    public let certificate: String
+    public let certificate: Certificate
 
-    public init(certificate: String) {
+    public init(certificate: Certificate) {
         self.certificate = certificate
     }
 }

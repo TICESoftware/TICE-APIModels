@@ -6,9 +6,9 @@ import Foundation
 
 public struct NotificationRecipient: Codable {
     public let userId: UserId
-    public let serverSignedMembershipCertificate: Membership
+    public let serverSignedMembershipCertificate: Certificate
 
-    public init(userId: UserId, serverSignedMembershipCertificate: Membership) {
+    public init(userId: UserId, serverSignedMembershipCertificate: Certificate) {
         self.userId = userId
         self.serverSignedMembershipCertificate = serverSignedMembershipCertificate
     }

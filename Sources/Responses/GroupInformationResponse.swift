@@ -8,10 +8,10 @@ public struct GroupInformationResponse: Codable {
     public let joinMode: JoinMode
     public let permissionMode: PermissionMode
     public let url: URL
-    public let encryptedSettings: String
+    public let encryptedSettings: Data
     public let groupTag: GroupTag
 
-    public init(groupId: GroupId, parentGroupId: GroupId?, type: GroupType, joinMode: JoinMode, permissionMode: PermissionMode, url: URL, encryptedSettings: String, groupTag: GroupTag) {
+    public init(groupId: GroupId, parentGroupId: GroupId?, type: GroupType, joinMode: JoinMode, permissionMode: PermissionMode, url: URL, encryptedSettings: Data, groupTag: GroupTag) {
         self.groupId = groupId
         self.parentGroupId = parentGroupId
         self.type = type

@@ -6,7 +6,7 @@ import Foundation
 
 public class Team: Group {
     public let groupId: GroupId
-    public let groupKey: String
+    public let groupKey: SecretKey
     public var joinMode: JoinMode
     public var permissionMode: PermissionMode
     public var url: URL
@@ -32,7 +32,7 @@ public class Team: Group {
         case participating(meetup: Meetup)
     }
 
-    public init(groupId: GroupId, groupKey: String, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, admins: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, tag: GroupTag, url: URL) {
+    public init(groupId: GroupId, groupKey: SecretKey, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, admins: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, tag: GroupTag, url: URL) {
         self.groupId = groupId
         self.groupKey = groupKey
         self.joinMode = joinMode

@@ -6,9 +6,9 @@ import Foundation
 
 public struct ParentGroup: Codable, Hashable {
     public let groupId: GroupId
-    public let encryptedChildGroupKey: String?
+    public let encryptedChildGroupKey: SecretKey?
 
-    public init(groupId: GroupId, encryptedChildGroupKey: String?) {
+    public init(groupId: GroupId, encryptedChildGroupKey: SecretKey?) {
         self.groupId = groupId
         self.encryptedChildGroupKey = encryptedChildGroupKey
     }
