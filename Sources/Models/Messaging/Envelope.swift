@@ -5,10 +5,9 @@
 import Foundation
 
 public struct Envelope: Codable {
-    public typealias Identifier = UUID
     public typealias CollapseIdentifier = String
 
-    public var id: Identifier
+    public var id: MessageId
     public var senderId: UserId
     public var timestamp: Date
     public var serverTimestamp: Date
@@ -16,7 +15,7 @@ public struct Envelope: Codable {
     public var conversationInvitation: ConversationInvitation?
     public var payloadContainer: PayloadContainer
 
-    public init(id: Identifier, senderId: UserId, timestamp: Date, serverTimestamp: Date, collapseId: CollapseIdentifier?, conversationInvitation: ConversationInvitation?, payloadContainer: PayloadContainer) {
+    public init(id: MessageId, senderId: UserId, timestamp: Date, serverTimestamp: Date, collapseId: CollapseIdentifier?, conversationInvitation: ConversationInvitation?, payloadContainer: PayloadContainer) {
         self.id = id
         self.senderId = senderId
         self.timestamp = timestamp
