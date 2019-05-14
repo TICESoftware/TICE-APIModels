@@ -2,8 +2,8 @@
 //  Copyright © 2019 Anbion. All rights reserved.
 //
 
-public typealias PrivateKey = Array<UInt8>
-public typealias PublicKey = Array<UInt8>
+public typealias PrivateKey = Data
+public typealias PublicKey = Data
 
 public struct SigningKeyPair {
     public let privateKey: PrivateKey

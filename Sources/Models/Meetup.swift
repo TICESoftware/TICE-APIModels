@@ -5,7 +5,7 @@
 import Foundation
 import CoreLocation
 
-public typealias SecretKey = Array<UInt8>
+public typealias SecretKey = Data
 
 public class Meetup: Group {
     public let groupId: GroupId
