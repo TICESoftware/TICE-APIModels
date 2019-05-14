@@ -3,11 +3,11 @@
 //
 
 public class SignedInUser: User {
-    public let keyPairs: UserKeyPairs
+    public let signingKeyPair: SigningKeyPair
 
-    public init(userId: UserId, keyPairs: UserKeyPairs) {
-        self.keyPairs = keyPairs
+    public init(userId: UserId, signingKeyPair: SigningKeyPair) {
+        self.signingKeyPair = signingKeyPair
 
-        super.init(userId: userId, publicSigningKey: self.keyPairs.signingKeyPair.publicKey)
+        super.init(userId: userId, publicSigningKey: signingKeyPair.publicKey)
     }
 }
