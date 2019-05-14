@@ -25,16 +25,6 @@ extension Group {
         return Array(members)
     }
 
-    public var shareURL: URL {
-        var components = URLComponents()
-        components.scheme = url.scheme
-        components.host = url.host
-        components.path = url.relativePath
-        components.fragment = groupKey.description
-
-        return components.url!
-    }
-
     public func transformURLScheme() {
         var components = URLComponents()
         components.scheme = "letsmeet"

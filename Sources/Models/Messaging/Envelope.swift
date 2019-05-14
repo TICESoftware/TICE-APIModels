@@ -13,14 +13,16 @@ public struct Envelope: Codable {
     public var timestamp: Date
     public var serverTimestamp: Date
     public var collapseId: CollapseIdentifier?
+    public var conversationInvitation: ConversationInvitation?
     public var payloadContainer: PayloadContainer
 
-    public init(id: Identifier, senderId: UserId, timestamp: Date, serverTimestamp: Date, collapseId: CollapseIdentifier?, payloadContainer: PayloadContainer) {
+    public init(id: Identifier, senderId: UserId, timestamp: Date, serverTimestamp: Date, collapseId: CollapseIdentifier?, conversationInvitation: ConversationInvitation?, payloadContainer: PayloadContainer) {
         self.id = id
         self.senderId = senderId
         self.timestamp = timestamp
         self.serverTimestamp = serverTimestamp
         self.collapseId = collapseId
+        self.conversationInvitation = conversationInvitation
         self.payloadContainer = payloadContainer
     }
 }
