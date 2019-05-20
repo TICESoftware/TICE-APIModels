@@ -56,3 +56,11 @@ public struct LocationUpdate: Payload {
         self.location = location
     }
 }
+
+public struct FewOneTimePrekeys: Payload {
+    public let remaining: Int
+    
+    public init(remaining: Int) {
+        self.remaining = remaining
+    }
+}
