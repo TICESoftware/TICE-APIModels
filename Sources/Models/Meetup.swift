@@ -22,11 +22,7 @@ public class Meetup: Group {
     public var internalSettings: InternalSettings
 
     public struct InternalSettings: Codable {
-        private var location: Location?
-
-        public init(location: CLLocation?) {
-            self.location = location?.location
-        }
+        fileprivate var location: Location?
     }
 
     public init(groupId: GroupId, groupKey: SecretKey, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, admins: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, tag: GroupTag, url: URL) {
@@ -59,6 +55,10 @@ extension Meetup: Hashable {
 import CoreLocation
 
 extension Meetup.InternalSettings {
+    public init(location: CLLocation?) {
+        self.location = location?.location
+    }
+
     public var meetingPoint: CLLocation? {
         get {
             guard let location = location else { return nil }
