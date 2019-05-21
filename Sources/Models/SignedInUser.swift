@@ -5,9 +5,8 @@
 public class SignedInUser: User {
     public let signingKeyPair: SigningKeyPair
 
-    public init(userId: UserId, signingKeyPair: SigningKeyPair) {
+    public init(userId: UserId, signingKeyPair: SigningKeyPair, publicName: String?) {
         self.signingKeyPair = signingKeyPair
-
-        super.init(userId: userId, publicSigningKey: signingKeyPair.publicKey)
+        super.init(userId: userId, publicSigningKey: signingKeyPair.publicKey, publicName: publicName)
     }
 }
