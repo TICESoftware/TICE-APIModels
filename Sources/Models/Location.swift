@@ -2,8 +2,6 @@
 //  Copyright © 2019 Anbion. All rights reserved.
 //
 
-import CoreLocation
-
 public struct Location: Codable {
     public let latitude: Double
     public let longitude: Double
@@ -22,6 +20,9 @@ public struct Location: Codable {
     }
 }
 
+#if canImport(CoreLocation)
+import CoreLocation
+
 public extension CLLocation {
     convenience init(_ location: Location) {
         let coordinates = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
@@ -32,3 +33,4 @@ public extension CLLocation {
         return Location(latitude: coordinate.latitude, longitude: coordinate.longitude, altitude: altitude, horizontalAccuracy: horizontalAccuracy, verticalAccuracy: verticalAccuracy, timestamp: timestamp)
     }
 }
+#endif

@@ -3,7 +3,6 @@
 //  
 
 import Foundation
-import CoreLocation
 
 public typealias SecretKey = Data
 
@@ -24,17 +23,6 @@ public class Meetup: Group {
 
     public struct InternalSettings: Codable {
         private var location: Location?
-
-        public var meetingPoint: CLLocation? {
-            get {
-                guard let location = location else { return nil }
-                return CLLocation(location)
-            }
-
-            set {
-                location = newValue?.location
-            }
-        }
 
         public init(location: CLLocation?) {
             self.location = location?.location
@@ -66,3 +54,20 @@ extension Meetup: Hashable {
         hasher.combine(groupId)
     }
 }
+
+#if canImport(CoreLocation)
+import CoreLocation
+
+extension Meetup.InternalSettings {
+    public var meetingPoint: CLLocation? {
+        get {
+            guard let location = location else { return nil }
+            return CLLocation(location)
+        }
+
+        set {
+            location = newValue?.location
+        }
+    }
+}
+#endif
