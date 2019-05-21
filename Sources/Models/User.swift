@@ -6,11 +6,11 @@ import Foundation
 
 public class User: UserProtocol {
     public let userId: UserId
-    public let publicKeys: UserPublicKeys
+    public let publicSigningKey: PublicKey
 
-    public init(userId: UserId, publicKeys: UserPublicKeys) {
+    public init(userId: UserId, publicSigningKey: PublicKey) {
         self.userId = userId
-        self.publicKeys = publicKeys
+        self.publicSigningKey = publicSigningKey
     }
 }
 

@@ -1,10 +1,10 @@
 public struct DeleteGroupMemberRequest: Codable {
     public let userId: UserId
-    public let serverSignedMembershipCertificate: Membership
-    public let tokenKey: String
+    public let serverSignedMembershipCertificate: Certificate
+    public let tokenKey: SecretKey
     public let notificationRecipients: [NotificationRecipient]
 
-    public init(userId: UserId, serverSignedMembershipCertificate: Membership, tokenKey: String, notificationRecipients: [NotificationRecipient]) {
+    public init(userId: UserId, serverSignedMembershipCertificate: Certificate, tokenKey: SecretKey, notificationRecipients: [NotificationRecipient]) {
         self.userId = userId
         self.serverSignedMembershipCertificate = serverSignedMembershipCertificate
         self.tokenKey = tokenKey

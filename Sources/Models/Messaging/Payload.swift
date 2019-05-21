@@ -15,10 +15,10 @@ public struct VerificationMessage: Payload {
 }
 
 public struct EncryptedPayloadContainer: Payload {
-    public let ciphertext: Data
-    public let encryptedKey: Data
+    public let ciphertext: Ciphertext
+    public let encryptedKey: Ciphertext
 
-    public init(ciphertext: Data, encryptedKey: Data) {
+    public init(ciphertext: Ciphertext, encryptedKey: Ciphertext) {
         self.ciphertext = ciphertext
         self.encryptedKey = encryptedKey
     }
@@ -54,5 +54,13 @@ public struct LocationUpdate: Payload {
 
     public init(location: Location) {
         self.location = location
+    }
+}
+
+public struct FewOneTimePrekeys: Payload {
+    public let remaining: Int
+    
+    public init(remaining: Int) {
+        self.remaining = remaining
     }
 }

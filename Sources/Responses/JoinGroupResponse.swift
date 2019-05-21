@@ -1,7 +1,7 @@
 public struct JoinGroupResponse: Codable {
-    public let serverSignedMembershipCertificate: Membership
+    public let serverSignedMembershipCertificate: Certificate
 
-    public init(serverSignedMembershipCertificate: Membership) {
+    public init(serverSignedMembershipCertificate: Certificate) {
         self.serverSignedMembershipCertificate = serverSignedMembershipCertificate
     }
 }

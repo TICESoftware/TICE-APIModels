@@ -8,7 +8,7 @@ public typealias GroupTag = String
 
 public protocol Group: class {
     var groupId: GroupId { get }
-    var groupKey: String { get }
+    var groupKey: SecretKey { get }
     var joinMode: JoinMode { get set }
     var permissionMode: PermissionMode { get set }
     var url: URL { get set }
@@ -23,16 +23,6 @@ public protocol Group: class {
 extension Group {
     public var sortedMembers: [Member] {
         return Array(members)
-    }
-
-    public var shareURL: URL {
-        var components = URLComponents()
-        components.scheme = url.scheme
-        components.host = url.host
-        components.path = url.relativePath
-        components.fragment = groupKey
-
-        return components.url!
     }
 
     public func transformURLScheme() {

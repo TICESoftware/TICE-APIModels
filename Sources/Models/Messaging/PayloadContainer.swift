@@ -12,6 +12,7 @@ public struct PayloadContainer: Codable {
         case groupInvitationV1 = "groupInvitation/v1"
         case groupUpdateV1 = "groupUpdate/v1"
         case locationUpdateV1 = "locationUpdate/v1"
+        case fewOneTimePrekeysV1 = "fewOneTimePrekeys/v1"
     }
 
     public var payloadType: PayloadType
@@ -42,6 +43,8 @@ public struct PayloadContainer: Codable {
             payload = try container.decode(GroupUpdate.self, forKey: .payload)
         case .locationUpdateV1:
             payload = try container.decode(LocationUpdate.self, forKey: .payload)
+        case .fewOneTimePrekeysV1:
+            payload = try container.decode(FewOneTimePrekeys.self, forKey: .payload)
         }
     }
 
@@ -60,6 +63,8 @@ public struct PayloadContainer: Codable {
             try container.encode(payload as! GroupUpdate, forKey: .payload)
         case .locationUpdateV1:
             try container.encode(payload as! LocationUpdate, forKey: .payload)
+        case .fewOneTimePrekeysV1:
+            try container.encode(payload as! FewOneTimePrekeys, forKey: .payload)
         }
     }
 }

@@ -1,12 +1,14 @@
+import Foundation
+
 public struct AddGroupMemberRequest: Codable {
-    public let encryptedMembership: Membership
-    public let serverSignedMembershipCertificate: Membership
-    public let newTokenKey: String
+    public let encryptedMembership: Ciphertext
+    public let userId: UserId
+    public let newTokenKey: SecretKey
     public let notificationRecipients: [NotificationRecipient]
 
-    public init(encryptedMembership: Membership, serverSignedMembershipCertificate: Membership, newTokenKey: String, notificationRecipients: [NotificationRecipient]) {
+    public init(encryptedMembership: Ciphertext, userId: UserId, newTokenKey: SecretKey, notificationRecipients: [NotificationRecipient]) {
         self.encryptedMembership = encryptedMembership
-        self.serverSignedMembershipCertificate = serverSignedMembershipCertificate
+        self.userId = userId
         self.newTokenKey = newTokenKey
         self.notificationRecipients = notificationRecipients
     }
