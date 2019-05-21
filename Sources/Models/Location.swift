@@ -2,6 +2,8 @@
 //  Copyright © 2019 Anbion. All rights reserved.
 //
 
+import Foundation
+
 public struct Location: Codable {
     public let latitude: Double
     public let longitude: Double
