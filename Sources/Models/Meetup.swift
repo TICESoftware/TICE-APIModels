@@ -54,12 +54,12 @@ extension Meetup: Hashable {
 #if canImport(CoreLocation)
 import CoreLocation
 
-extension Meetup.InternalSettings {
-    public init(location: CLLocation?) {
+public extension Meetup.InternalSettings {
+    init(location: CLLocation?) {
         self.location = location?.location
     }
 
-    public var meetingPoint: CLLocation? {
+    var meetingPoint: CLLocation? {
         get {
             guard let location = location else { return nil }
             return CLLocation(location)
