@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name                  = "LetsMeetModels"
-  s.version               = "10.0.2"
+  s.version               = "11.0.0"
   s.summary               = "Models to be used in Let's Meet projects."
   s.ios.deployment_target = '10.0'
   s.osx.deployment_target = '10.12'
