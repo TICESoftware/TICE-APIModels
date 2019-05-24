@@ -3,9 +3,9 @@
 //
 
 public class SignedInUser: User {
-    public let signingKeyPair: SigningKeyPair
+    public let signingKeyPair: KeyPair
 
-    public init(userId: UserId, signingKeyPair: SigningKeyPair, publicName: String?) {
+    public init(userId: UserId, signingKeyPair: KeyPair, publicName: String?) {
         self.signingKeyPair = signingKeyPair
         super.init(userId: userId, publicSigningKey: signingKeyPair.publicKey, publicName: publicName)
     }

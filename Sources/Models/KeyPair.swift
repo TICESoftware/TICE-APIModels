@@ -7,7 +7,7 @@ import Foundation
 public typealias PrivateKey = Data
 public typealias PublicKey = Data
 
-public struct SigningKeyPair {
+public struct KeyPair {
     public let privateKey: PrivateKey
     public let publicKey: PublicKey
 
