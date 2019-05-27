@@ -6,8 +6,8 @@ import Foundation
 
 public class User: UserProtocol {
     public let userId: UserId
-    public let publicSigningKey: PublicKey
-    public let publicName: String?
+    public var publicSigningKey: PublicKey
+    public var publicName: String?
 
     public init(userId: UserId, publicSigningKey: PublicKey, publicName: String?) {
         self.userId = userId
