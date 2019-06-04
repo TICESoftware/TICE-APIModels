@@ -9,15 +9,15 @@ public struct Envelope: Codable {
 
     public var id: MessageId
     public var senderId: UserId
-    public var senderServerSignedMembershipCertificate: Certificate
-    public var receiverServerSignedMembershipCertificate: Certificate
+    public var senderServerSignedMembershipCertificate: Certificate?
+    public var receiverServerSignedMembershipCertificate: Certificate?
     public var timestamp: Date
     public var serverTimestamp: Date
     public var collapseId: CollapseIdentifier?
     public var conversationInvitation: ConversationInvitation?
     public var payloadContainer: PayloadContainer
 
-    public init(id: MessageId, senderId: UserId, senderServerSignedMembershipCertificate: Certificate, receiverServerSignedMembershipCertificate: Certificate, timestamp: Date, serverTimestamp: Date, collapseId: CollapseIdentifier?, conversationInvitation: ConversationInvitation?, payloadContainer: PayloadContainer) {
+    public init(id: MessageId, senderId: UserId, senderServerSignedMembershipCertificate: Certificate?, receiverServerSignedMembershipCertificate: Certificate?, timestamp: Date, serverTimestamp: Date, collapseId: CollapseIdentifier?, conversationInvitation: ConversationInvitation?, payloadContainer: PayloadContainer) {
         self.id = id
         self.senderId = senderId
         self.senderServerSignedMembershipCertificate = senderServerSignedMembershipCertificate
