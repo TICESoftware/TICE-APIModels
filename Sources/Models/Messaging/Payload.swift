@@ -65,4 +65,6 @@ public struct FewOneTimePrekeys: Payload {
     }
 }
 
-public struct ResetConversation: Payload { }
+public struct ResetConversation: Payload {
+    public init() { }
+}
