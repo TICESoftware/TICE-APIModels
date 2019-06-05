@@ -17,6 +17,7 @@ public struct APIError: Error, Equatable {
         case authenticationFailed
         case pushFailed
         case notModified
+        case conflicts
     }
 
     public init(type: ErrorType, description: String = "", payload: ErrorPayload? = nil) {
