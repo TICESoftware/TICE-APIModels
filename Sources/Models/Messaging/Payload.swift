@@ -64,3 +64,5 @@ public struct FewOneTimePrekeys: Payload {
         self.remaining = remaining
     }
 }
+
+public struct ResetConversation: Payload { }
