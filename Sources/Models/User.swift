@@ -25,3 +25,9 @@ extension User: Hashable {
         hasher.combine(userId)
     }
 }
+
+public class Zombie: User {
+    public init(userId: UserId) {
+        super.init(userId: userId, publicSigningKey: PublicKey(), publicName: nil)
+    }
+}
