@@ -18,6 +18,7 @@ public struct APIError: Error, Equatable {
         case pushFailed
         case notModified
         case conflicts
+        case membershipCertificateExpired
     }
 
     public init(type: ErrorType, description: String = "", payload: ErrorPayload? = nil) {
@@ -54,6 +55,7 @@ public struct ErrorPayload: Codable, Equatable {
         public enum Reason: String, Codable {
             case newIdentityKey
             case membershipMismatch
+            case serverSignedCertificateExpired
         }
 
         public init(userId: UserId, reason: Reason) {
