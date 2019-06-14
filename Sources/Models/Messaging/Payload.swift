@@ -44,6 +44,7 @@ public struct GroupUpdate: Payload {
     public enum Action: String, Codable {
         case groupDeleted
         case memberAdded
+        case memberUpdated
         case memberDeleted
         case settingsUpdated
         case childrenUpdated
