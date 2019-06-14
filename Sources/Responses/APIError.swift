@@ -33,6 +33,7 @@ extension APIError: Codable {
     enum CodingKeys: String, CodingKey {
         case type
         case description
+        case errorPayload
     }
 
     public init(from decoder: Decoder) throws {
@@ -40,8 +41,9 @@ extension APIError: Codable {
 
         let errorTypeString = try values.decode(String.self, forKey: .type)
         let description = try values.decode(String.self, forKey: .description)
+        let errorPayload = try values.decode(ErrorPayload.self, forKey: .errorPayload)
 
-        self.init(type: ErrorType(rawValue: errorTypeString) ?? .unknown, description: description)
+        self.init(type: ErrorType(rawValue: errorTypeString) ?? .unknown, description: description, payload: errorPayload)
     }
 }
 
