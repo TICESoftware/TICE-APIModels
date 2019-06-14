@@ -41,7 +41,7 @@ extension APIError: Codable {
 
         let errorTypeString = try values.decode(String.self, forKey: .type)
         let description = try values.decode(String.self, forKey: .description)
-        let errorPayload = try values.decode(ErrorPayload.self, forKey: .errorPayload)
+        let errorPayload = try values.decodeIfPresent(ErrorPayload.self, forKey: .errorPayload)
 
         self.init(type: ErrorType(rawValue: errorTypeString) ?? .unknown, description: description, payload: errorPayload)
     }
