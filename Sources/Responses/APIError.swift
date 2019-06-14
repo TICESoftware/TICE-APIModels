@@ -57,7 +57,7 @@ public struct ErrorPayload: Codable, Equatable {
         public enum Reason: String, Codable {
             case newIdentityKey
             case membershipMismatch
-            case serverSignedCertificateExpired
+            case serverSignedCertificateInvalid
         }
 
         public init(userId: UserId, reason: Reason) {
