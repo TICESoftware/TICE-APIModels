@@ -18,7 +18,7 @@ public struct APIError: Error, Equatable {
         case pushFailed
         case notModified
         case conflicts
-        case membershipCertificateExpired
+        case groupIsParent
     }
 
     public init(type: ErrorType, description: String = "", payload: ErrorPayload? = nil) {
