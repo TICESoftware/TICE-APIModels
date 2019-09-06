@@ -18,6 +18,7 @@ public class Team: Group {
     public var tag: GroupTag
 
     public var internalSettings: InternalSettings
+    public var meetupPending: Bool = false
     public var meetups: Set<Meetup> {
         return Set(children.compactMap { $0 as? Meetup })
     }
@@ -28,6 +29,7 @@ public class Team: Group {
 
     public enum MeetupState {
         case none
+        case pending
         case invited
         case participating(meetup: Meetup)
     }
