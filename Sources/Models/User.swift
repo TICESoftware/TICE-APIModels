@@ -27,7 +27,7 @@ extension User: Hashable {
 }
 
 public class Zombie: User {
-    public init(userId: UserId) {
-        super.init(userId: userId, publicSigningKey: PublicKey(), publicName: nil)
+    public init(userId: UserId, publicName: String? = nil) {
+        super.init(userId: userId, publicSigningKey: PublicKey(), publicName: publicName)
     }
 }
