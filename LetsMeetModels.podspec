@@ -1,11 +1,11 @@
 Pod::Spec.new do |s|
 
   s.name                  = "LetsMeetModels"
-  s.version               = "24.0.0"
+  s.version               = "25.0.0"
   s.summary               = "Models to be used in Let's Meet projects."
   s.ios.deployment_target = '10.0'
   s.osx.deployment_target = '10.12'
-  s.swift_version         = "5.0"
+  s.swift_version         = "5.1"
   s.license               = { :type => 'MIT', :file => 'LICENSE' }
 
   s.homepage              = "https://lets-meet.in"
