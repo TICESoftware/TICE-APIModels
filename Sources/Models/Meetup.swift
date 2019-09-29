@@ -13,19 +13,18 @@ public class Meetup: Group {
     public var permissionMode: PermissionMode
     public var url: URL
     public weak var parent: Group?
-    public var children: [Group]
-    public var members: Set<Member>
-    public var admins: Set<Member>
-    public var settings: GroupSettings
-    public var tag: GroupTag
+    @SynchronizedProperty public var children: [Group]
+    @SynchronizedProperty public var members: Set<Member>
+    @SynchronizedProperty public var settings: GroupSettings
+    @SynchronizedProperty public var tag: GroupTag
 
-    public var internalSettings: InternalSettings
+    @SynchronizedProperty public var internalSettings: InternalSettings
 
     public struct InternalSettings: Codable {
         fileprivate var location: Location?
     }
 
-    public init(groupId: GroupId, groupKey: SecretKey, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, admins: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, tag: GroupTag, url: URL) {
+    public init(groupId: GroupId, groupKey: SecretKey, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, tag: GroupTag, url: URL) {
         self.groupId = groupId
         self.groupKey = groupKey
         self.joinMode = joinMode
@@ -33,7 +32,6 @@ public class Meetup: Group {
         self.parent = parent
         self.children = children
         self.members = members
-        self.admins = admins
         self.settings = settings
         self.internalSettings = internalSettings
         self.tag = tag
