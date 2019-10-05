@@ -47,7 +47,8 @@ public struct GroupUpdate: Payload {
         case memberUpdated
         case memberDeleted
         case settingsUpdated
-        case childrenUpdated
+        case childGroupCreated
+        case childGroupDeleted
     }
 }
 
