@@ -4,18 +4,18 @@
 import PackageDescription
 
 let package = Package(
-    name: "LetsMeetModels",
+    name: "TICEModels",
     platforms: [
         .macOS(.v10_14)
     ],
     products: [
         .library(
-            name: "LetsMeetModels",
-            targets: ["LetsMeetModels"])
+            name: "TICEModels",
+            targets: ["TICEModels"])
     ],
     targets: [
         .target(
-            name: "LetsMeetModels",
+            name: "TICEModels",
             dependencies: [],
             path: "Sources")
     ]

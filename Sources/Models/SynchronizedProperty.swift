@@ -6,7 +6,7 @@ import Foundation
 
 @propertyWrapper
 public class SynchronizedProperty<T> {
-    private let propertyQueue = DispatchQueue(label: "de.anbion.letsmeetModels.synchronizedProperty", attributes: .concurrent)
+    private let propertyQueue = DispatchQueue(label: "de.anbion.TICEModels.synchronizedProperty", attributes: .concurrent)
     private var value: T
 
     public var wrappedValue: T {
