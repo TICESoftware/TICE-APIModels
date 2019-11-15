@@ -19,6 +19,7 @@ public struct APIError: Error, Equatable {
         case notModified
         case conflicts
         case groupIsParent
+        case clientBuildDeprecated
     }
 
     public init(type: ErrorType, description: String = "", payload: ErrorPayload? = nil) {
