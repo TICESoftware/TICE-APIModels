@@ -71,3 +71,11 @@ public struct FewOneTimePrekeys: Payload {
 public struct ResetConversation: Payload {
     public init() { }
 }
+
+public struct UserUpdate: Payload {
+    public let userId: UserId
+
+    public init(userId: UserId) {
+        self.userId = userId
+    }
+}
