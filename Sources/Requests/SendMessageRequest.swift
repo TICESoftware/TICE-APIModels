@@ -8,10 +8,10 @@ public struct SendMessageRequest: Codable {
     public let serverSignedMembershipCertificate: Certificate
     public let recipients: [Recipient]
     public let priority: MessagePriority
-    public let collapseId: String?
+    public let collapseId: Envelope.CollapseIdentifier?
     public let messageTimeToLive: TimeInterval
 
-    public init(id: MessageId, senderId: UserId, timestamp: Date, encryptedMessage: Ciphertext, serverSignedMembershipCertificate: Certificate, recipients: [Recipient], priority: MessagePriority, collapseId: String?, messageTimeToLive: TimeInterval) {
+    public init(id: MessageId, senderId: UserId, timestamp: Date, encryptedMessage: Ciphertext, serverSignedMembershipCertificate: Certificate, recipients: [Recipient], priority: MessagePriority, collapseId: Envelope.CollapseIdentifier?, messageTimeToLive: TimeInterval) {
         self.id = id
         self.senderId = senderId
         self.timestamp = timestamp
