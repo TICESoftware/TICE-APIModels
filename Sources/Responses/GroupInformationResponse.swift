@@ -9,9 +9,10 @@ public struct GroupInformationResponse: Codable {
     public let permissionMode: PermissionMode
     public let url: URL
     public let encryptedSettings: Ciphertext
+    public let receipts: [ReceiptId]
     public let groupTag: GroupTag
 
-    public init(groupId: GroupId, parentGroupId: GroupId?, type: GroupType, joinMode: JoinMode, permissionMode: PermissionMode, url: URL, encryptedSettings: Ciphertext, groupTag: GroupTag) {
+    public init(groupId: GroupId, parentGroupId: GroupId?, type: GroupType, joinMode: JoinMode, permissionMode: PermissionMode, url: URL, encryptedSettings: Ciphertext, receipts: [ReceiptId], groupTag: GroupTag) {
         self.groupId = groupId
         self.parentGroupId = parentGroupId
         self.type = type
@@ -19,6 +20,7 @@ public struct GroupInformationResponse: Codable {
         self.permissionMode = permissionMode
         self.url = url
         self.encryptedSettings = encryptedSettings
+        self.receipts = receipts
         self.groupTag = groupTag
     }
 }

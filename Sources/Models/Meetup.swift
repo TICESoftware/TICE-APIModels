@@ -16,15 +16,15 @@ public class Meetup: Group {
     @SynchronizedProperty public var children: [Group]
     @SynchronizedProperty public var members: Set<Member>
     @SynchronizedProperty public var settings: GroupSettings
-    @SynchronizedProperty public var tag: GroupTag
-
     @SynchronizedProperty public var internalSettings: InternalSettings
+    @SynchronizedProperty public var receipts: [Receipt]
+    @SynchronizedProperty public var tag: GroupTag
 
     public struct InternalSettings: Codable {
         fileprivate var location: Location?
     }
 
-    public init(groupId: GroupId, groupKey: SecretKey, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, tag: GroupTag, url: URL) {
+    public init(groupId: GroupId, groupKey: SecretKey, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, receipts: [Receipt] = [], tag: GroupTag, url: URL) {
         self.groupId = groupId
         self.groupKey = groupKey
         self.joinMode = joinMode
@@ -34,6 +34,7 @@ public class Meetup: Group {
         self.members = members
         self.settings = settings
         self.internalSettings = internalSettings
+        self.receipts = receipts
         self.tag = tag
         self.url = url
     }
@@ -69,3 +70,21 @@ public extension Meetup.InternalSettings {
     }
 }
 #endif
+
+public extension Meetup {
+    var memberLimit: Int {
+        let baseLimit = 5
+        let limit = receipts.reduce(baseLimit) {
+            switch $1.content {
+            case .meetupDay5:
+                return $0 + 5
+            case .meetupDay10:
+                return $0 + 10
+            case .meetupDay20:
+                return $0 + 20
+            }
+        }
+        return limit
+    }
+}
+
