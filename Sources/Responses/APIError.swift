@@ -4,22 +4,8 @@ public struct APIError: Error, Equatable {
     public let description: String
     public let errorPayload: ErrorPayload?
 
-    public enum ErrorType: String, Codable {
-        case unknown
-        case invalidJson
-        case missingKey
-        case invalidValue
-        case internalServerError
-        case invalidVerificationCode
-        case notFound
-        case duplicateGroupId
-        case invalidGroupTag
-        case authenticationFailed
-        case pushFailed
-        case notModified
-        case conflicts
-        case groupIsParent
-        case clientBuildDeprecated
+    public struct ErrorType: Equatable {
+        var raw: String
     }
 
     public init(type: ErrorType, description: String = "", payload: ErrorPayload? = nil) {
@@ -40,11 +26,49 @@ extension APIError: Codable {
     public init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
 
-        let errorTypeString = try values.decode(String.self, forKey: .type)
+        let errorType = try values.decode(ErrorType.self, forKey: .type)
         let description = try values.decode(String.self, forKey: .description)
         let errorPayload = try values.decodeIfPresent(ErrorPayload.self, forKey: .errorPayload)
 
-        self.init(type: ErrorType(rawValue: errorTypeString) ?? .unknown, description: description, payload: errorPayload)
+        self.init(type: errorType, description: description, payload: errorPayload)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(type, forKey: .type)
+        try container.encode(description, forKey: .description)
+        try container.encodeIfPresent(errorPayload, forKey: .errorPayload)
+    }
+}
+
+public extension APIError.ErrorType {
+    static var unknown: Self = APIError.ErrorType(raw: "unknown")
+    static var invalidJson: Self = APIError.ErrorType(raw: "invalidJson")
+    static var missingKey: Self = APIError.ErrorType(raw: "missingKey")
+    static var invalidValue: Self = APIError.ErrorType(raw: "invalidValue")
+    static var internalServerError: Self = APIError.ErrorType(raw: "internalServerError")
+    static var invalidVerificationCode: Self = APIError.ErrorType(raw: "invalidVerificationCode")
+    static var notFound: Self = APIError.ErrorType(raw: "notFound")
+    static var duplicateGroupId: Self = APIError.ErrorType(raw: "duplicateGroupId")
+    static var invalidGroupTag: Self = APIError.ErrorType(raw: "invalidGroupTag")
+    static var authenticationFailed: Self = APIError.ErrorType(raw: "authenticationFailed")
+    static var pushFailed: Self = APIError.ErrorType(raw: "pushFailed")
+    static var notModified: Self = APIError.ErrorType(raw: "notModified")
+    static var conflicts: Self = APIError.ErrorType(raw: "conflicts")
+    static var groupIsParent: Self = APIError.ErrorType(raw: "groupIsParent")
+    static var clientBuildDeprecated: Self = APIError.ErrorType(raw: "clientBuildDeprecated")
+    static var groupIsFull: Self = APIError.ErrorType(raw: "groupIsFull")
+}
+
+extension APIError.ErrorType: Codable {
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        raw = try container.decode(String.self)
+    }
+    
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(raw)
     }
 }
 
