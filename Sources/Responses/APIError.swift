@@ -58,6 +58,7 @@ public extension APIError.ErrorType {
     static var groupIsParent: Self = APIError.ErrorType(raw: "groupIsParent")
     static var clientBuildDeprecated: Self = APIError.ErrorType(raw: "clientBuildDeprecated")
     static var groupIsFull: Self = APIError.ErrorType(raw: "groupIsFull")
+    static var groupIsOverfull: Self = APIError.ErrorType(raw: "groupIsOverfull")
 }
 
 extension APIError.ErrorType: Codable {
