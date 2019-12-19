@@ -26,7 +26,7 @@ public class Team: Group {
         public init() {}
     }
 
-    public enum MeetupState {
+    public enum MeetupState: Equatable {
         case none
         case invited
         case participating(meetup: Meetup)
