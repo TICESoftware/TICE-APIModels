@@ -59,6 +59,8 @@ public extension APIError.ErrorType {
     static var clientBuildDeprecated: Self = .init(raw: "clientBuildDeprecated")
     static var groupIsFull: Self = .init(raw: "groupIsFull")
     static var groupIsOverfull: Self = .init(raw: "groupIsOverfull")
+    static var receiptExpired: Self = .init(raw: "receiptExpired")
+    static var receiptUsed: Self = .init(raw: "receiptUsed")
 }
 
 extension APIError.ErrorType: Codable {
