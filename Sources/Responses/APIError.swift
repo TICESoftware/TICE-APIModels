@@ -1,4 +1,4 @@
-public struct APIError: Error, Equatable {
+public struct APIError: Error {
 
     public let type: ErrorType
     public let description: String
@@ -28,7 +28,14 @@ extension APIError: Codable {
 
         let errorType = try values.decode(ErrorType.self, forKey: .type)
         let description = try values.decode(String.self, forKey: .description)
-        let errorPayload = try values.decodeIfPresent(ErrorPayload.self, forKey: .errorPayload)
+        
+        let errorPayload: ErrorPayload?
+        switch errorType {
+        case .conflicts:
+            errorPayload = try values.decodeIfPresent(RecipientValidationConflicts.self, forKey: .errorPayload)
+        default:
+            errorPayload = nil
+        }
 
         self.init(type: errorType, description: description, payload: errorPayload)
     }
@@ -37,7 +44,14 @@ extension APIError: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(type, forKey: .type)
         try container.encode(description, forKey: .description)
-        try container.encodeIfPresent(errorPayload, forKey: .errorPayload)
+        
+        switch type {
+        case .conflicts:
+            try container.encodeIfPresent(errorPayload as! RecipientValidationConflicts?, forKey: .errorPayload)
+        default:
+            break
+        }
+        
     }
 }
 
@@ -59,6 +73,7 @@ public extension APIError.ErrorType {
     static var clientBuildDeprecated: Self = .init(raw: "clientBuildDeprecated")
     static var groupIsFull: Self = .init(raw: "groupIsFull")
     static var groupIsOverfull: Self = .init(raw: "groupIsOverfull")
+    static var rawReceiptUsed: Self = .init(raw: "rawReceiptUsed")
     static var receiptExpired: Self = .init(raw: "receiptExpired")
     static var receiptUsed: Self = .init(raw: "receiptUsed")
 }
@@ -75,7 +90,10 @@ extension APIError.ErrorType: Codable {
     }
 }
 
-public struct ErrorPayload: Codable, Equatable {
+public protocol ErrorPayload: Codable { }
+
+public struct RecipientValidationConflicts: ErrorPayload {
+    
     public let conflicts: [Conflict]
 
     public struct Conflict: Codable, Equatable {
