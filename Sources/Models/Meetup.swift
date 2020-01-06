@@ -72,8 +72,8 @@ public extension Meetup.InternalSettings {
 #endif
 
 public extension Meetup {
-    var memberLimitUpgrade: UInt {
-        let limit = receipts.reduce(UInt(0)) { prevLimit, receipt in
+    var memberLimitUpgrade: Int {
+        let limit = receipts.reduce(0) { prevLimit, receipt in
             switch receipt.content {
             case .meetupDay5:
                 return prevLimit + 5
