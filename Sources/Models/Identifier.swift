@@ -7,4 +7,3 @@ import Foundation
 public typealias GroupId = UUID
 public typealias UserId = UUID
 public typealias MessageId = UUID
-public typealias ReceiptId = UUID

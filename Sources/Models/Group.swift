@@ -16,6 +16,5 @@ public protocol Group: class {
     var children: [Group] { get set }
     var members: Set<Member> { get set }
     var settings: GroupSettings { get set }
-    var receipts: [Receipt] { get set }
     var tag: GroupTag { get set }
 }

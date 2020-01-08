@@ -15,7 +15,6 @@ public class Team: Group {
     @SynchronizedProperty public var members: Set<Member>
     @SynchronizedProperty public var settings: GroupSettings
     @SynchronizedProperty public var internalSettings: InternalSettings
-    @SynchronizedProperty public var receipts: [Receipt]
     @SynchronizedProperty public var tag: GroupTag
 
     public var meetups: Set<Meetup> {
@@ -32,7 +31,7 @@ public class Team: Group {
         case participating(meetup: Meetup)
     }
 
-    public init(groupId: GroupId, groupKey: SecretKey, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, receipts: [Receipt] = [], tag: GroupTag, url: URL) {
+    public init(groupId: GroupId, groupKey: SecretKey, joinMode: JoinMode, permissionMode: PermissionMode, parent: Group? = nil, children: [Group] = [], members: Set<Member>, settings: GroupSettings, internalSettings: InternalSettings, tag: GroupTag, url: URL) {
         self.groupId = groupId
         self.groupKey = groupKey
         self.joinMode = joinMode
@@ -42,7 +41,6 @@ public class Team: Group {
         self.members = members
         self.settings = settings
         self.internalSettings = internalSettings
-        self.receipts = receipts
         self.tag = tag
         self.url = url
     }
