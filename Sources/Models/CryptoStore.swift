@@ -12,7 +12,7 @@ public struct HandshakeMaterial {
     }
 }
 
-public struct ConversationState {
+public struct ConversationState: Codable {
     public let rootKey: SecretKey
     public let rootChainKeyPair: KeyPair
     public let rootChainRemotePublicKey: PublicKey?
