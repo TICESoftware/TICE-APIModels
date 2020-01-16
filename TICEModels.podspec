@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name                  = "TICEModels"
-  s.version               = "42.1.0"
+  s.version               = "42.1.1"
   s.summary               = "Models to be used in TICE projects."
   s.ios.deployment_target = '10.0'
   s.osx.deployment_target = '10.12'
@@ -10,8 +10,8 @@ Pod::Spec.new do |s|
 
   s.homepage              = "https://ticeapp.com"
 
-  s.author                = { "Anbion" => "tice@anbion.de" }
-  s.source                = { :git => "git@github.com:AnbionApps/tice-models.git", :tag => "#{s.version}" }
+  s.author                = { "TICE Software UG (haftungsbeschränkt)" => "contact@ticeapp.com" }
+  s.source                = { :git => "git@github.com:TICESoftware/tice-models.git", :tag => "#{s.version}" }
 
   s.source_files          = "Sources/**/*"
 
