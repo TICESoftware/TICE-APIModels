@@ -15,6 +15,7 @@ public struct PayloadContainer: Codable {
         case fewOneTimePrekeysV1 = "fewOneTimePrekeys/v1"
         case resetConversationV1 = "resetConversation/v1"
         case userUpdateV1 = "userUpdate/v1"
+        case chatMessageV1 = "chatMessage/v1"
     }
 
     public var payloadType: PayloadType
@@ -51,6 +52,8 @@ public struct PayloadContainer: Codable {
             payload = try container.decode(ResetConversation.self, forKey: .payload)
         case .userUpdateV1:
             payload = try container.decode(UserUpdate.self, forKey: .payload)
+        case .chatMessageV1:
+            payload = try container.decode(ChatMessage.self, forKey: .payload)
         }
     }
 
@@ -75,6 +78,8 @@ public struct PayloadContainer: Codable {
             try container.encode(payload as! ResetConversation, forKey: .payload)
         case .userUpdateV1:
             try container.encode(payload as! UserUpdate, forKey: .payload)
+        case .chatMessageV1:
+            try container.encode(payload as! ChatMessage, forKey: .payload)
         }
     }
 }

@@ -79,3 +79,15 @@ public struct UserUpdate: Payload {
         self.userId = userId
     }
 }
+
+public struct ChatMessage: Payload {
+    public let groupId: GroupId
+    public let text: String?
+    public let imageData: Data?
+
+    public init(groupId: GroupId, text: String?, imageData: Data?) {
+        self.groupId = groupId
+        self.text = text
+        self.imageData = imageData
+    }
+}
