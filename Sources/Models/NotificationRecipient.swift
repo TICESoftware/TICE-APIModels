@@ -4,7 +4,7 @@
 
 import Foundation
 
-public struct NotificationRecipient: Codable {
+public struct NotificationRecipient: Codable, Equatable {
     public let userId: UserId
     public let serverSignedMembershipCertificate: Certificate
 

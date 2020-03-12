@@ -6,15 +6,11 @@ import Foundation
 
 public typealias GroupTag = String
 
-public protocol Group: class {
+public protocol Group {
     var groupId: GroupId { get }
     var groupKey: SecretKey { get }
-    var joinMode: JoinMode { get set }
-    var permissionMode: PermissionMode { get set }
-    var url: URL { get set }
-    var parent: Group? { get set }
-    var children: [Group] { get set }
-    var members: Set<Member> { get set }
-    var settings: GroupSettings { get set }
+    var owner: UserId { get }
+    var joinMode: JoinMode { get }
+    var permissionMode: PermissionMode { get }
     var tag: GroupTag { get set }
 }
