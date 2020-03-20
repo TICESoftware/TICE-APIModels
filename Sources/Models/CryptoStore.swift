@@ -1,17 +1,5 @@
 import Foundation
 
-public struct HandshakeMaterial {
-    public let identityKeyPair: KeyPair
-    public let signedPrekeyPair: KeyPair
-    public let oneTimePrekeyPairs: [KeyPair]
-
-    public init(identityKeyPair: KeyPair, signedPrekeyPair: KeyPair, oneTimePrekeyPairs: [KeyPair]) {
-        self.identityKeyPair = identityKeyPair
-        self.signedPrekeyPair = signedPrekeyPair
-        self.oneTimePrekeyPairs = oneTimePrekeyPairs
-    }
-}
-
 public typealias ConversationId = UUID
 
 public struct ConversationState: Codable {
