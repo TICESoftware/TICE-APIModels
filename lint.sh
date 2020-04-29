@@ -22,7 +22,7 @@ if [ $(git describe --tags) != ${1} ]; then
 fi
 
 echo "Linting…"
-LINT=$(pod lib lint --allow-warnings)
+LINT=$(pod lib lint)
 if [ $? -ne 0 ]; then
   echo "${RED}Linting failed:${RESET}"
   echo "${LINT}"
