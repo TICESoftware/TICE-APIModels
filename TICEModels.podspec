@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name                  = "TICEModels"
-  s.version               = "46.0.1"
+  s.version               = "47.0.0"
   s.summary               = "Models to be used in TICE projects."
   s.ios.deployment_target = '10.0'
   s.osx.deployment_target = '10.12'
