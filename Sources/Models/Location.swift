@@ -28,18 +28,20 @@ public struct Location: Codable, Hashable, Equatable {
         self.speedAccuracy = speedAccuracy
         self.timestamp = timestamp
     }
-    
-    public init(coordinate: CLLocationCoordinate2D, altitude: Double = 0, horizontalAccuracy: Double = 0, verticalAccuracy: Double = -1, course: Double? = nil, courseAccuracy: Double? = nil, speed: Double? = nil, speedAccuracy: Double? = nil, timestamp: Date = Date()) {
-        self.init(latitude: coordinate.latitude, longitude: coordinate.longitude, altitude: altitude, horizontalAccuracy: horizontalAccuracy, verticalAccuracy: verticalAccuracy, course: course, courseAccuracy: courseAccuracy, speed: speed, speedAccuracy: speedAccuracy, timestamp: timestamp)
-    }
-    
-    public var coordinate: CLLocationCoordinate2D {
-        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-    }
 }
 
 #if canImport(CoreLocation)
 import CoreLocation
+
+public extension Location {
+    init(coordinate: CLLocationCoordinate2D, altitude: Double = 0, horizontalAccuracy: Double = 0, verticalAccuracy: Double = -1, course: Double? = nil, courseAccuracy: Double? = nil, speed: Double? = nil, speedAccuracy: Double? = nil, timestamp: Date = Date()) {
+        self.init(latitude: coordinate.latitude, longitude: coordinate.longitude, altitude: altitude, horizontalAccuracy: horizontalAccuracy, verticalAccuracy: verticalAccuracy, course: course, courseAccuracy: courseAccuracy, speed: speed, speedAccuracy: speedAccuracy, timestamp: timestamp)
+    }
+    
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+}
 
 public extension CLLocation {
     convenience init(_ location: Location) {
