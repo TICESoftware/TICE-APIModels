@@ -17,9 +17,8 @@ public struct ConversationState: Codable {
     public let sendMessageNumber: Int
     public let receivedMessageNumber: Int
     public let previousSendingChainLength: Int
-    public let messageKeyCache: Data
 
-    public init(userId: UserId, conversationId: ConversationId, rootKey: SecretKey, rootChainKeyPair: KeyPair, rootChainRemotePublicKey: PublicKey?, sendingChainKey: SecretKey?, receivingChainKey: SecretKey?, sendMessageNumber: Int, receivedMessageNumber: Int, previousSendingChainLength: Int, messageKeyCache: Data) {
+    public init(userId: UserId, conversationId: ConversationId, rootKey: SecretKey, rootChainKeyPair: KeyPair, rootChainRemotePublicKey: PublicKey?, sendingChainKey: SecretKey?, receivingChainKey: SecretKey?, sendMessageNumber: Int, receivedMessageNumber: Int, previousSendingChainLength: Int) {
         self.userId = userId
         self.conversationId = conversationId
         self.rootKey = rootKey
@@ -31,6 +30,5 @@ public struct ConversationState: Codable {
         self.sendMessageNumber = sendMessageNumber
         self.receivedMessageNumber = receivedMessageNumber
         self.previousSendingChainLength = previousSendingChainLength
-        self.messageKeyCache = messageKeyCache
     }
 }
