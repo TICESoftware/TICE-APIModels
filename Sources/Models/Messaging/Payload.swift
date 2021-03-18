@@ -91,3 +91,12 @@ public struct ChatMessage: Payload {
         self.imageData = imageData
     }
 }
+
+public struct LocationSharing: Payload {
+    public let groupId: GroupId
+    public let sharingEnabled: Bool
+    public init(groupId: GroupId, sharingEnabled: Bool) {
+        self.groupId = groupId
+        self.sharingEnabled = sharingEnabled
+    }
+}
