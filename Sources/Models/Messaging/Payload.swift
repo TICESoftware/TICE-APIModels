@@ -60,6 +60,16 @@ public struct LocationUpdate: Payload {
     }
 }
 
+public struct LocationUpdateV2: Payload {
+    public let location: Location
+    public let groupId: GroupId
+    
+    public init(location: Location, groupId: GroupId) {
+        self.location = location
+        self.groupId = groupId
+    }
+}
+
 public struct FewOneTimePrekeys: Payload {
     public let remaining: Int
     

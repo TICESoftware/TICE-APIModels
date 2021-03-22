@@ -17,6 +17,7 @@ let package = Package(
         .target(
             name: "TICEModels",
             dependencies: [],
-            path: "Sources")
+            path: "Sources"),
+        .testTarget(name: "TICEModelsTests", dependencies: ["TICEModels"])
     ]
 )
