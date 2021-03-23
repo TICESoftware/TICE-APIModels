@@ -7,6 +7,6 @@ public struct CertificateRequest: Codable {
 }
 
 public typealias RevokeCertificateRequest = CertificateRequest
-public typealias CertificateBlacklistedRequest = CertificateRequest
+public typealias CertificateRevokedRequest = CertificateRequest
 public typealias RenewCertificateRequest = CertificateRequest
 public typealias RenewCertificateResponse = CertificateRequest

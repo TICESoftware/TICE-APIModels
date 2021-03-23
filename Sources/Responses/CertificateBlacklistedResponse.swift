@@ -1,6 +1,6 @@
 import Foundation
 
-public struct CertificateBlacklistedResponse: Codable {
+public struct CertificateRevokedResponse: Codable {
     public let revokedAt: Date?
 
     public init(revokedAt: Date?) {
