@@ -22,16 +22,9 @@ if [ $(git describe --tags) != ${1} ]; then
 fi
 
 echo "Linting…"
-LINT=$(pod lib lint)
+LINT=$(swiftlint)
 if [ $? -ne 0 ]; then
   echo "${RED}Linting failed:${RESET}"
-  echo "${LINT}"
-  STATUS=1
-fi
-
-if ! $(echo ${LINT} | grep -qF "(${1})")
-then
-  echo "${RED}Linting failed. Podspec version invalid.${RESET}"
   echo "${LINT}"
   STATUS=1
 fi
