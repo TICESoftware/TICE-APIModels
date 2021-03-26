@@ -4,8 +4,9 @@
 
 import Foundation
 
-public typealias Signature = Data
 public typealias PublicKey = Data
+public typealias Signature = Data
+public typealias Certificate = String
 
 public struct UserPublicKeys: Codable, Hashable {
     public let signingKey: PublicKey

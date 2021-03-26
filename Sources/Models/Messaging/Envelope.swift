@@ -5,6 +5,7 @@
 import Foundation
 
 public struct Envelope: Codable {
+    public typealias MessageId = UUID
     public typealias CollapseIdentifier = String
 
     public var id: MessageId
