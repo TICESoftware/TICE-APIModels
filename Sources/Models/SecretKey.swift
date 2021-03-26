@@ -5,3 +5,4 @@
 import Foundation
 
 public typealias SecretKey = Data
+public typealias PrivateKey = Data

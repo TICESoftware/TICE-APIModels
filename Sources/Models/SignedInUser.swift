@@ -3,20 +3,18 @@
 //
 
 public class SignedInUser: User {
-    public let signingKeyPair: KeyPair
+    public let privateSigningKey: PrivateKey
 
     private enum CodingKeys: String, CodingKey {
-        case signingKeyPair
+        case privateSigningKey
     }
 
-    public init(userId: UserId, signingKeyPair: KeyPair, publicName: String?) {
-        self.signingKeyPair = signingKeyPair
-        super.init(userId: userId, publicSigningKey: signingKeyPair.publicKey, publicName: publicName)
+    public init(userId: UserId, privateSigningKey: PrivateKey, publicSigningKey: PublicKey, publicName: String?) {
+        self.privateSigningKey = privateSigningKey
+        super.init(userId: userId, publicSigningKey: publicSigningKey, publicName: publicName)
     }
 
     public required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        self.signingKeyPair = try container.decode(KeyPair.self, forKey: .signingKeyPair)
-        try super.init(from: decoder)
+        fatalError("init(from:) has not been implemented")
     }
 }

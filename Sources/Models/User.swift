@@ -4,7 +4,7 @@
 
 import Foundation
 
-public class User: UserProtocol, Codable {
+open class User: Codable {
     public let userId: UserId
     public var publicSigningKey: PublicKey
     public var publicName: String?
