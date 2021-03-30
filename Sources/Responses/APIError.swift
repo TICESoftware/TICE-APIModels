@@ -47,6 +47,7 @@ extension APIError: Codable {
         
         switch type {
         case .conflicts:
+            //swiftlint:disable:next force_cast
             try container.encodeIfPresent(errorPayload as! RecipientValidationConflicts?, forKey: .errorPayload)
         default:
             break

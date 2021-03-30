@@ -67,6 +67,7 @@ public struct PayloadContainer: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(payloadType, forKey: .payloadType)
 
+        //swiftlint:disable force_cast
         switch payloadType {
         case .verificationMessageV1:
             try container.encode(payload as! VerificationMessage, forKey: .payload)
@@ -91,5 +92,6 @@ public struct PayloadContainer: Codable {
         case .locationSharingV1:
             try container.encode(payload as! LocationSharing, forKey: .payload)
         }
+        //swiftlint:enable force_cast
     }
 }
