@@ -7,7 +7,7 @@
 
 import Foundation
 import XCTest
-@testable import TICEModels
+@testable import TICEAPIModels
 
 class PayloadTests: XCTestCase {
     func test() throws {

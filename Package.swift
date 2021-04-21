@@ -4,20 +4,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "TICEModels",
+    name: "TICEAPIModels",
     platforms: [
         .macOS(.v10_14)
     ],
     products: [
         .library(
-            name: "TICEModels",
-            targets: ["TICEModels"])
+            name: "TICEAPIModels",
+            targets: ["TICEAPIModels"])
     ],
     targets: [
         .target(
-            name: "TICEModels",
+            name: "TICEAPIModels",
             dependencies: [],
             path: "Sources"),
-        .testTarget(name: "TICEModelsTests", dependencies: ["TICEModels"])
+        .testTarget(name: "TICEAPIModelsTests", dependencies: ["TICEAPIModels"])
     ]
 )
