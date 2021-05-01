@@ -102,7 +102,7 @@ public struct ChatMessage: Payload {
     }
 }
 
-public struct LocationSharing: Payload {
+public struct LocationSharingUpdate: Payload {
     public let groupId: GroupId
     public let sharingEnabled: Bool
     public init(groupId: GroupId, sharingEnabled: Bool) {
