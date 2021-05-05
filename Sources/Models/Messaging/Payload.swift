@@ -52,14 +52,6 @@ public struct GroupUpdate: Payload {
     }
 }
 
-public struct LocationUpdate: Payload {
-    public let location: Location
-
-    public init(location: Location) {
-        self.location = location
-    }
-}
-
 public struct LocationUpdateV2: Payload {
     public let location: Location
     public let groupId: GroupId

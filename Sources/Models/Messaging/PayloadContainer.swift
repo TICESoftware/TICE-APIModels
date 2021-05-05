@@ -11,7 +11,6 @@ public struct PayloadContainer: Codable {
         case encryptedPayloadContainerV1 = "encryptedPayloadContainer/v1"
         case groupInvitationV1 = "groupInvitation/v1"
         case groupUpdateV1 = "groupUpdate/v1"
-        case locationUpdateV1 = "locationUpdate/v1"
         case locationUpdateV2 = "locationUpdate/v2"
         case fewOneTimePrekeysV1 = "fewOneTimePrekeys/v1"
         case resetConversationV1 = "resetConversation/v1"
@@ -46,8 +45,6 @@ public struct PayloadContainer: Codable {
             payload = try container.decode(GroupInvitation.self, forKey: .payload)
         case .groupUpdateV1:
             payload = try container.decode(GroupUpdate.self, forKey: .payload)
-        case .locationUpdateV1:
-            payload = try container.decode(LocationUpdate.self, forKey: .payload)
         case .locationUpdateV2:
             payload = try container.decode(LocationUpdateV2.self, forKey: .payload)
         case .fewOneTimePrekeysV1:
@@ -77,8 +74,6 @@ public struct PayloadContainer: Codable {
             try container.encode(payload as! GroupInvitation, forKey: .payload)
         case .groupUpdateV1:
             try container.encode(payload as! GroupUpdate, forKey: .payload)
-        case .locationUpdateV1:
-            try container.encode(payload as! LocationUpdate, forKey: .payload)
         case .locationUpdateV2:
             try container.encode(payload as! LocationUpdateV2, forKey: .payload)
         case .fewOneTimePrekeysV1:
