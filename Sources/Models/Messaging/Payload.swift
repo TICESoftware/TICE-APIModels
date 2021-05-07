@@ -102,3 +102,10 @@ public struct LocationSharingUpdate: Payload {
         self.sharingEnabled = sharingEnabled
     }
 }
+
+public struct LocationSharingRequest: Payload {
+    public let groupId: GroupId
+    public init(groupId: GroupId) {
+        self.groupId = groupId
+    }
+}

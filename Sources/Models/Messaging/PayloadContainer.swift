@@ -17,6 +17,7 @@ public struct PayloadContainer: Codable {
         case userUpdateV1 = "userUpdate/v1"
         case chatMessageV1 = "chatMessage/v1"
         case locationSharingUpdateV1 = "locationSharingUpdate/v1"
+        case locationSharingRequestV1 = "locationSharingRequest/v1"
     }
 
     public var payloadType: PayloadType
@@ -57,6 +58,8 @@ public struct PayloadContainer: Codable {
             payload = try container.decode(ChatMessage.self, forKey: .payload)
         case .locationSharingUpdateV1:
             payload = try container.decode(LocationSharingUpdate.self, forKey: .payload)
+        case .locationSharingRequestV1:
+            payload = try container.decode(LocationSharingRequest.self, forKey: .payload)
         }
     }
 
@@ -86,6 +89,8 @@ public struct PayloadContainer: Codable {
             try container.encode(payload as! ChatMessage, forKey: .payload)
         case .locationSharingUpdateV1:
             try container.encode(payload as! LocationSharingUpdate, forKey: .payload)
+        case .locationSharingRequestV1:
+            try container.encode(payload as! LocationSharingRequest, forKey: .payload)
         }
         //swiftlint:enable force_cast
     }
