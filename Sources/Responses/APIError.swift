@@ -72,6 +72,7 @@ public extension APIError.ErrorType {
     static var conflicts: Self = .init(raw: "conflicts")
     static var groupIsParent: Self = .init(raw: "groupIsParent")
     static var clientBuildDeprecated: Self = .init(raw: "clientBuildDeprecated")
+    static var groupMemberLimitExceeded: Self = .init(raw: "groupMemberLimitExceeded")
 }
 
 extension APIError.ErrorType: Codable {
