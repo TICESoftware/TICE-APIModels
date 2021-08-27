@@ -1,3 +1,5 @@
+public typealias PhoneNumber = String
+
 public struct FilterUsersResponseUser: Codable {
     public let userId: UserId
     public let phoneNumber: PhoneNumber

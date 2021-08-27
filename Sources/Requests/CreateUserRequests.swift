@@ -1,6 +1,4 @@
-public typealias PhoneNumber = String
-
-public struct CreateUserPushRequest: Codable {
+public struct CreatePushUserRequest: Codable {
     public let publicKeys: UserPublicKeys
     public let platform: Platform
     public let deviceId: String
@@ -16,7 +14,7 @@ public struct CreateUserPushRequest: Codable {
     }
 }
 
-public struct CreateUserCaptchaRequest: Codable {
+public struct CreateCaptchaUserRequest: Codable {
     public let publicKeys: UserPublicKeys
     public let platform: Platform
     public let verificationCode: String
@@ -26,6 +24,16 @@ public struct CreateUserCaptchaRequest: Codable {
         self.publicKeys = publicKeys
         self.platform = platform
         self.verificationCode = verificationCode
+        self.publicName = publicName
+    }
+}
+
+public struct CreateWebUserRequest: Codable {
+    public let publicKeys: UserPublicKeys
+    public let publicName: String?
+
+    public init(publicKeys: UserPublicKeys, publicName: String?) {
+        self.publicKeys = publicKeys
         self.publicName = publicName
     }
 }
